@@ -13,7 +13,7 @@ def programinfo(request):
     return render_to_response('programinfo.html', [], context_instance=RequestContext(request))
 
 def about(request):
-    return render_to_response('about.html', [], context_instance=RequestContext(request))
+    return render_to_response('about/about.html', [], context_instance=RequestContext(request))
 
 def home(request): 
     return render_to_response('index.html', [], context_instance=RequestContext(request))
