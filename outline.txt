@@ -1,4 +1,3 @@
-
 Landing Page
 	Prospective Students
 		About the Neurosciences Program (Purpose; Relationship w/ SINTN, SOM, SU, Biosciences; Joint Faculty; Foci)
@@ -50,25 +49,9 @@ Landing Page
 		Our Students
 		Contacts
 
-	
 Ideas:
 	-Why NSP modeled after: http://leadvisualdesigner.intercom.io/
  
-
  Todos:
  	NSP logo
  	images for landing page
- 	
-
- 
-
- 
-
- 
- 
-
- 
-
-
-
-
