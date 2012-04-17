@@ -19,6 +19,10 @@ urlpatterns = patterns('',
     # program info
     url(r'^programinfo', 'main.views.programinfo'),
 
+		# about
+    url(r'^about', 'main.views.about'),
+
+
     # catch all other URLs
     url(r'^', 'main.views.notfound', name='404'),
 )
