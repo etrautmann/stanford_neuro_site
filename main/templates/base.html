@@ -47,11 +47,11 @@
           <a class="brand" href="#">Stanford Neurosciences</a>
           <div class="nav-collapse">
             <ul class="nav pull-right">
+              <li><a href="#">About</a></li>
               <li><a href="#">Prospective Students</a></li>
               <li><a href="#">Current Students</a></li>
               <li><a href="#">Faculty</a></li>
               <li><a href="#">News &amp; Media</a></li>
-              <li><a href="#">About</a></li>
 
               <li class="dropdown" id="menu1">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
@@ -76,27 +76,10 @@
 
     <div class="container">
       <div class="row">
-        <!--<div class="span2 offset1">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">About the Program</li>
-              <li><a href="#">Admissions</a></li>
-              <li><a href="#">Program of Study</a></li>
-              <li class="nav-header">People</li>
-              <li><a href="#">Our Students</a></li>
-              <li><a href="#">Our Faculty</a></li>
-              <li><a href="#">Our Alumni</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Resources</li>
-              <li><a href="#">Courses</a></li>
-              <li><a href="#">Calendar</a></li>
-              <li><a href="#">Intranet</a></li>
-            </ul>
-          </div><!-/.well ->
-        </div><!-/span-->
-        <div class="span10 offset1">
+        <div class="span2 offset1">
+            {% block sidebar %}{% endblock %}          
+        </div>
+        <div class="span8">
             {% block content %}{% endblock %}          
         </div><!--/span-->
       </div><!--/row-->
