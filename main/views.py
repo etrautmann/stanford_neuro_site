@@ -17,3 +17,6 @@ def programinfo(request):
 
 # def test(request):
     # return render_to_response('test.html', [], context_instance=RequestContext(request))
+
+def home(request): 
+    return render_to_response('index.html', [], context_instance=RequestContext(request))
