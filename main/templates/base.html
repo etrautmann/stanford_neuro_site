@@ -77,12 +77,14 @@
 
     <div class="container">
       <div class="row">
+        {% block fullcontent %}
         <div class="span2 offset1">
             {% block sidebar %}{% endblock %}          
         </div>
         <div class="span8">
             {% block content %}{% endblock %}          
         </div><!--/span-->
+        {% endblock %}
       </div><!--/row-->
 
       <footer class="modal-footer">

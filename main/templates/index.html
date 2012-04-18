@@ -1,22 +1,17 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
 
-{% block programhistory %}class="active"{% endblock %}
-
-{% block content %}
-
-
+{% block fullcontent %}
 <!-- ============ -->
 <!-- = Carousel = -->
 <!-- ============ -->
 <section id="carousel">
-    <div class="row">
-       <div class="span1">
+       <!--<div class="span1">
            <br/><br/>
            <img src="{{ STATIC_URL}}images/StanfordLogo.jpg" alt="" width="80px"><hr>
-       </div>
-       <div class="span9">
-           <h2 style="text-align: center;">Welcome to the Stanford Neurosciences PhD Program</h2>
+       </div>-->
+       <div class="span9" style="margin-left: 160px;">
+           <div class="hero-unit" style="text-align: center; padding: 20px 5px;"><h2 style="font-size: 42px;">Welcome to the Stanford<br/>Neurosciences PhD Program!</h2></div>
        	   <div id="myCarousel" class="carousel slide">
             <div class="carousel-inner">
               <div class="item active">
@@ -47,19 +42,25 @@
       </div>
    </div>
    <div class="row">
-       <div class="span3 offset1">
+       <div class="span3" style="margin-left: 160px;">
            <div class="well">
-           box 1
+               <h3 align="center">About the program</h3>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut purus euismod dui lobortis imperdiet in nec ligula. </p>
+               <p align="center"><a class="btn btn-primary btn-large">Tour &rarr;</a></p>
            </div>
        </div>
        <div class="span3">
            <div class="well">
-           box 2
+               <h3 align="center">Prospective Students</h3>
+               <p>Phasellus tempus tellus at orci rutrum sodales. Fusce congue arcu ultrices mauris feugiat sed auctor risus tincidunt.</p>
+               <p align="center"><a class="btn btn-primary btn-large">Learn more &rarr;</a></p>
            </div>
        </div>
        <div class="span3">
            <div class="well">
-           box 3
+               <h3 align="center">Current students</h3>
+               <p>Nullam ac arcu neque, quis gravida odio. Quisque pulvinar nisl risus. Ut ac felis in sapien ultrices viverra fermentum ut mi.</p>
+               <p align="center"><a class="btn btn-primary btn-large">Login &rarr;</a>
            </div>
        </div>
 </div>
