@@ -22,6 +22,9 @@ urlpatterns = patterns('',
     # about
     url(r'^about', 'main.views.about'),
 
+    # prospective students
+    url(r'^prospective_students', 'main.views.prospective_students'),
+
     # catch all other URLs
     url(r'^', 'main.views.notfound', name='404'),
 )

@@ -15,5 +15,8 @@ def programinfo(request):
 def about(request):
     return render_to_response('about/about.html', [], context_instance=RequestContext(request))
 
+def prospective_students(request):
+    return render_to_response('prospective_students/prospective_students.html', [], context_instance=RequestContext(request))
+
 def home(request): 
     return render_to_response('index.html', [], context_instance=RequestContext(request))
