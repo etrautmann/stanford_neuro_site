@@ -36,7 +36,9 @@
 </head>
 
   <body>
+			<div id="wrapper">
 
+		<!-- HEADER -->
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -75,7 +77,9 @@
       </div>
     </div>
 
-    <div class="container-fluid">
+		<!-- BODY -->
+		<div id="body">
+    <div class="container">
       <div class="row">
         {% block fullcontent %}
         <div class="span2 offset1">
@@ -86,7 +90,9 @@
         </div><!--/span-->
         {% endblock %}
       </div><!--/row-->
+	</div>
 
+		<!-- FOOTER -->
       <footer class="modal-footer">
       <div class='container'>
         <div class='row'>
@@ -184,5 +190,6 @@
     <script src="{{ STATIC_URL }}js/bootstrap-carousel.js"></script>
     <script src="{{ STATIC_URL }}js/bootstrap-typeahead.js"></script>
 
+</div> <!-- wrapper -->
   </body>
 </html>
