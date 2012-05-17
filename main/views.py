@@ -6,9 +6,6 @@ from django.shortcuts import render_to_response
 def notfound(request):
     return render_to_response('404.html', [], context_instance=RequestContext(request))
 
-# def base(request):
-    # return render_to_response('base.html', [], context_instance=RequestContext(request))
-
 def programinfo(request):
     return render_to_response('programinfo.html', [], context_instance=RequestContext(request))
 
