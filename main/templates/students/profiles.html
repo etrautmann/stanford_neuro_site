@@ -1,0 +1,19 @@
+{% extends "L2_students.html" %}
+{% block title %}Student Profiles{% endblock %}
+
+{% block content %}
+    <h2>Student Profiles</h2>
+    {% if students %}
+        <table style="margin-top: 20px;" class="table table-striped table-bordered table-condensed">
+            <thead><tr><td><b>Name</b></td><td><b>E-mail</b></td></tr></thead>
+            <tbody>
+                {% for student in students %}
+                    <tr><td>{{ student.firstname }}&nbsp;{{ student.lastname }}</td><td>{{ student.email }}</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p style="margin-top: 20px;">Error.<p>
+    {% endif %}
+</div>
+{% endblock %}

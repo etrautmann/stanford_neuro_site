@@ -12,6 +12,9 @@ urlpatterns = patterns('',
     # prospective students
     url(r'^prospective_students', 'main.views.prospective_students'),
 
+    # student profiles
+    url(r'^students/profiles', 'main.views.student_profiles'),
+
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

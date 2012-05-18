@@ -1,5 +1,6 @@
 # Create your views here.
 from django.http import HttpResponse
+from main.models import Student
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 
@@ -11,6 +12,9 @@ def programinfo(request):
 
 def about(request):
     return render_to_response('about/about.html', [], context_instance=RequestContext(request))
+
+def student_profiles(request):
+    return render_to_response('students/profiles.html', {'students': Student.objects.all()}, context_instance=RequestContext(request))
 
 def prospective_students(request):
     return render_to_response('prospective_students/prospective_students.html', [], context_instance=RequestContext(request))
