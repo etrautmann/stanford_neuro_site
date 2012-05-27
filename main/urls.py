@@ -7,7 +7,9 @@ urlpatterns = patterns('main.views',
     url(r'^$', 'home'),
 
     # about
-    url(r'^about', 'about'),
+    url(r'^about/info', 'about'),
+    url(r'^about/handbook/download', 'download_handbook'),
+    url(r'^about/handbook', 'handbook'),
 
     # prospective students
     url(r'^prospective_students', 'prospective_students'),

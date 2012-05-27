@@ -1,0 +1,8 @@
+{% extends "L2_about.html" %}
+{% block title %}Program Handbook{% endblock %}
+
+{% block content %}
+    <h2>Program Handbook</h2><a class="btn btn-primary" href="/about/handbook/download">Download</a>
+	<embed height="100%" width="100%"  name="plugin" src="{{ STATIC_URL }}handbook.pdf"  type="application/pdf">
+</div>
+{% endblock %}

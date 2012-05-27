@@ -13,10 +13,12 @@ def home(request):
 
 ### About ###
 def about(request):
-    print "test"
-    return render_to_response('about/about.html', [], context_instance=RequestContext(request))
+    return render_to_response('about/info.html', [], context_instance=RequestContext(request))
 
-### Prospective Students
+def handbook(request):
+    return render_to_response('about/handbook.html', [], context_instance=RequestContext(request))
+
+### Prospective Students ###
 def programinfo(request):
     return render_to_response('programinfo.html', [], context_instance=RequestContext(request))
 
@@ -42,8 +44,15 @@ def calendar(request):
 def news(request):
     return render_to_response('students/news.html', {'students': Student.objects.all()}, context_instance=RequestContext(request))
 
+### Other ###
+def download_handbook(request): 
+    abspath = open('/Users/Niru/Sites/stanford_neuro_site/main/static/handbook.pdf','r')
+    response = HttpResponse(content=abspath.read())
+    response['Content-Type']= 'application/pdf'
+    response['Content-Disposition'] = 'attachment; filename=%s.pdf' \
+                                       % 'Stanford Neuroscience Program Handbook'
+    return response
+
 ### Faculty ###
 def faculty_profiles(request):
     return render_to_response('faculty/profiles.html', {'faculty': Faculty.objects.all()}, context_instance=RequestContext(request))
-
-
