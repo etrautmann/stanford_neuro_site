@@ -1,0 +1,19 @@
+{% extends "L2_faculty.html" %}
+{% block title %}Faculty Profiles{% endblock %}
+
+{% block content %}
+    <h2>Faculty Profiles</h2>
+    {% if faculty %}
+        <table style="margin-top: 20px;" class="table table-striped table-bordered table-condensed">
+						<thead><tr><td><b>Name</b></td><td><b>Title</td></b><td><b>E-mail</b></td></tr></thead>
+            <tbody>
+                {% for prof in faculty %}
+								<tr><td><a href="{{ prof.website }}">{{ prof.fullname }}</a></td><td>{{ prof.title }}</td><td>{{ prof.email }}</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p style="margin-top: 20px;">Error.<p>
+    {% endif %}
+</div>
+{% endblock %}
