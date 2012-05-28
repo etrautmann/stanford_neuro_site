@@ -13,6 +13,13 @@ urlpatterns = patterns('main.views',
 
     # prospective students
     url(r'^prospective_students', 'prospective_students'),
+    url(r'^prospective_students/program_of_study', 'program_of_study')
+    url(r'^prospective_students/meet_current_students', 'meet_current_students')
+    url(r'^prospective_students/FAQ', 'FAQ')
+    url(r'^prospective_students/admissions', 'admissions')
+    url(r'^prospective_students/funding_opportunities', 'funding_opportunities')
+    url(r'^prospective_students/contact_us', 'contact_us')
+    url(r'^prospective_students/apply_now', 'apply_now')
 
     ### Student ###
     url(r'^students/profiles', 'student_profiles'),
