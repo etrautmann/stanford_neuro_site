@@ -11,6 +11,8 @@ def notfound(request):
 def home(request): 
     return render_to_response('index.html', [], context_instance=RequestContext(request))
 
+
+
 ### About ###
 def about(request):
     return render_to_response('about/info.html', [], context_instance=RequestContext(request))
@@ -18,12 +20,34 @@ def about(request):
 def handbook(request):
     return render_to_response('about/handbook.html', [], context_instance=RequestContext(request))
 
-### Prospective Students ###
-def programinfo(request):
-    return render_to_response('programinfo.html', [], context_instance=RequestContext(request))
 
+
+### Prospective Students ###
 def prospective_students(request):
     return render_to_response('prospective_students/prospective_students.html', [], context_instance=RequestContext(request))
+
+def program_of_study(request):
+    return render_to_response('prospective_students/program_of_study.html', [], context_instance=RequestContext(request))
+
+def meet_current_students(request):
+    return render_to_response('prospective_students/meet_current_students.html', [], context_instance=RequestContext(request))
+
+def FAQ(request):
+    return render_to_response('prospective_students/FAQ.html', [], context_instance=RequestContext(request))
+
+def admissions(request):
+    return render_to_response('prospective_students/admissions.html', [], context_instance=RequestContext(request))
+
+def funding_opportunities(request):
+    return render_to_response('prospective_students/funding_opportunities.html', [], context_instance=RequestContext(request))
+
+def contact_us(request):
+    return render_to_response('prospective_students/contact_us.html', [], context_instance=RequestContext(request))
+
+def apply_now(request):
+    return render_to_response('prospective_students/apply_now.html', [], context_instance=RequestContext(request))
+
+
 
 ### Students ###
 def student_profiles(request):
@@ -43,6 +67,25 @@ def calendar(request):
 
 def news(request):
     return render_to_response('students/news.html', {'students': Student.objects.all()}, context_instance=RequestContext(request))
+
+
+
+### News and Media ###
+def publications(request):
+    return render_to_response('media/publications.html', [], context_instance=RequestContext(request))
+
+def calendar_of_events(request):
+    return render_to_response('media/calendar_of_events.html', [], context_instance=RequestContext(request))
+
+def press_releases(request):
+    return render_to_response('media/press_releases.html', [], context_instance=RequestContext(request))
+
+def twitter(request):
+    return render_to_response('media/twitter.html', [], context_instance=RequestContext(request))
+
+def neuroblog(request):
+    return render_to_response('media/neuroblog.html', [], context_instance=RequestContext(request))
+
 
 ### Other ###
 def download_handbook(request): 

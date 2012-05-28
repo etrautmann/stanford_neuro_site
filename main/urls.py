@@ -13,13 +13,13 @@ urlpatterns = patterns('main.views',
 
     # prospective students
     url(r'^prospective_students', 'prospective_students'),
-    url(r'^prospective_students/program_of_study', 'program_of_study')
-    url(r'^prospective_students/meet_current_students', 'meet_current_students')
-    url(r'^prospective_students/FAQ', 'FAQ')
-    url(r'^prospective_students/admissions', 'admissions')
-    url(r'^prospective_students/funding_opportunities', 'funding_opportunities')
-    url(r'^prospective_students/contact_us', 'contact_us')
-    url(r'^prospective_students/apply_now', 'apply_now')
+    url(r'^prospective_students/program_of_study', 'program_of_study'),
+    url(r'^prospective_students/meet_current_students', 'meet_current_students'),
+    url(r'^prospective_students/FAQ', 'FAQ'),
+    url(r'^prospective_students/admissions', 'admissions'),
+    url(r'^prospective_students/funding_opportunities', 'funding_opportunities'),
+    url(r'^prospective_students/contact_us', 'contact_us'),
+    url(r'^prospective_students/apply_now', 'apply_now'),
 
     ### Student ###
     url(r'^students/profiles', 'student_profiles'),
@@ -34,8 +34,11 @@ urlpatterns = patterns('main.views',
     #url(r'^faculty/intranet', 'faculty_intranet'),
 
     ### News & Media ###
-    #url(r'^media/publications', 'publications'),
-    #url(r'^media/press', 'press'),
+    url(r'^media/publications', 'publications'),
+    url(r'^media/calender_of_events', 'calendar_of_events'),
+    url(r'^media/press_releases', 'press_releases'),
+    url(r'^media/twitter', 'twitter'),
+    url(r'^media/neuroblog', 'neuroblog'),
 )
 
 urlpatterns += patterns('',
