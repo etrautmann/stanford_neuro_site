@@ -12,7 +12,8 @@ urlpatterns = patterns('main.views',
     url(r'^about/handbook', 'handbook'),
 
     # prospective students
-    url(r'^prospective_students', 'prospective_students'),
+    #url(r'^prospective_students', 'prospective_students'),
+    url(r'^prospective_students/why_stanford', 'why_stanford'),
     url(r'^prospective_students/program_of_study', 'program_of_study'),
     url(r'^prospective_students/meet_current_students', 'meet_current_students'),
     url(r'^prospective_students/FAQ', 'FAQ'),
@@ -34,12 +35,12 @@ urlpatterns = patterns('main.views',
     #url(r'^faculty/intranet', 'faculty_intranet'),
 
     ### News & Media ###
-    url(r'^media', 'media'),
-    url(r'^media/publications', 'publications'),
-    url(r'^media/calender_of_events', 'calendar_of_events'),
-    url(r'^media/press_releases', 'press_releases'),
-    url(r'^media/twitter', 'twitter'),
-    url(r'^media/neuroblog', 'neuroblog'),
+    #url(r'^media', 'media'),
+    #url(r'^media/publications', 'publications'),
+    #url(r'^media/calender_of_events', 'calendar_of_events'),
+    #url(r'^media/press_releases', 'press_releases'),
+    #url(r'^media/twitter', 'twitter'),
+    #url(r'^media/neuroblog', 'neuroblog'),
 )
 
 urlpatterns += patterns('',

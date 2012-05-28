@@ -23,11 +23,11 @@ def handbook(request):
 
 
 ### Prospective Students ###
-def prospective_students(request):
-    return render_to_response('prospective_students/prospective_students.html', [], context_instance=RequestContext(request))
-
 def program_of_study(request):
     return render_to_response('prospective_students/program_of_study.html', [], context_instance=RequestContext(request))
+
+def why_stanford(request):
+    return render_to_response('prospective_students/why_stanford.html', [], context_instance=RequestContext(request))
 
 def meet_current_students(request):
     return render_to_response('prospective_students/meet_current_students.html', [], context_instance=RequestContext(request))
@@ -70,21 +70,21 @@ def news(request):
 
 
 
-### News and Media ###
-def publications(request):
-    return render_to_response('media/publications.html', [], context_instance=RequestContext(request))
-
-def calendar_of_events(request):
-    return render_to_response('media/calendar_of_events.html', [], context_instance=RequestContext(request))
-
-def press_releases(request):
-    return render_to_response('media/press_releases.html', [], context_instance=RequestContext(request))
-
-def twitter(request):
-    return render_to_response('media/twitter.html', [], context_instance=RequestContext(request))
-
-def neuroblog(request):
-    return render_to_response('media/neuroblog.html', [], context_instance=RequestContext(request))
+#### News and Media ###
+#def publications(request):
+    #return render_to_response('media/publications.html', [], context_instance=RequestContext(request))
+#
+#def calendar_of_events(request):
+    #return render_to_response('media/calendar_of_events.html', [], context_instance=RequestContext(request))
+#
+#def press_releases(request):
+    #return render_to_response('media/press_releases.html', [], context_instance=RequestContext(request))
+#
+#def twitter(request):
+    #return render_to_response('media/twitter.html', [], context_instance=RequestContext(request))
+#
+#def neuroblog(request):
+    #return render_to_response('media/neuroblog.html', [], context_instance=RequestContext(request))
 
 
 ### Other ###
