@@ -45,5 +45,5 @@ print '\n' + blurbs[0] + '\n'
 
 # from main.models import Faculty
 # for j in range(num):
-      # u = Faculty(fullname=names[j], email=emails[j], title=titles[j], website=websites[j])
+      # u = Faculty(firstname=firstnames[j], lastname=lastnames[j], degree=degrees[j], website=websites[j], title=titles[j], department=departments[j], email=emails[j], blurb=blurbs[j])
       # u.save()
