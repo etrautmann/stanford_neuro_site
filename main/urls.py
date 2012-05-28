@@ -34,6 +34,7 @@ urlpatterns = patterns('main.views',
     #url(r'^faculty/intranet', 'faculty_intranet'),
 
     ### News & Media ###
+    url(r'^media', 'media'),
     url(r'^media/publications', 'publications'),
     url(r'^media/calender_of_events', 'calendar_of_events'),
     url(r'^media/press_releases', 'press_releases'),
