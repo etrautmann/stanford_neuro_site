@@ -1,6 +1,6 @@
 # Create your views here.
 from django.http import HttpResponse
-from main.models import Student, Faculty
+from main.models import Student, Faculty, Alumnus
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 
@@ -52,6 +52,9 @@ def apply_now(request):
 ### Students ###
 def student_profiles(request):
     return render_to_response('students/profiles.html', {'students': Student.objects.all()}, context_instance=RequestContext(request))
+
+def alumni_profiles(request):
+    return render_to_response('students/alumni.html', {'alumni': Alumnus.objects.all()}, context_instance=RequestContext(request))
 
 def student_intranet(request):
     return render_to_response('students/intranet.html', {'students': Student.objects.all()}, context_instance=RequestContext(request))

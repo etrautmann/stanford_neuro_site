@@ -20,3 +20,13 @@ class Faculty(models.Model):
 
     def __unicode__(self):
         return self.firstname + " " + self.lastname
+
+class Alumnus(models.Model):
+    firstname = models.CharField(max_length = 20)
+    lastname = models.CharField(max_length = 20)
+    advisor = models.CharField(max_length = 40)
+    currentpos = models.CharField(max_length = 250)
+    links = models.CharField(max_length = 250)
+
+    def __unicode__(self):
+        return self.firstname + " " + self.lastname
