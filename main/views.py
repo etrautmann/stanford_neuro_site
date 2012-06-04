@@ -63,6 +63,7 @@ def photos(request):
     return render_to_response('students/photos.html', {'students': Student.objects.all()}, context_instance=RequestContext(request))
 
 def courses(request):
+    # all courses
     thisyear_molecular = Course.objects.filter(concentration__exact=1,schoolyear__lte=1)
     thisyear_translational = Course.objects.filter(concentration__exact=2,schoolyear__lte=1)
     thisyear_systems = Course.objects.filter(concentration__exact=3,schoolyear__lte=1)
@@ -71,7 +72,31 @@ def courses(request):
     nextyear_systems = Course.objects.filter(concentration__exact=3,schoolyear__gte=1)
     allcourses = Course.objects.all()
 
-    return render_to_response('students/courses.html', {'tym': thisyear_molecular, 'tyt': thisyear_translational, 'tys': thisyear_systems, 'nym': nextyear_molecular, 'nyt': nextyear_translational, 'nys': nextyear_systems, 'courses': allcourses}, context_instance=RequestContext(request))
+    # course matrix (autumn)
+    tyma = Course.objects.filter(concentration__exact=1,schoolyear__lte=1,quarter__exact=1)
+    tyta = Course.objects.filter(concentration__exact=2,schoolyear__lte=1,quarter__exact=1)
+    tysa = Course.objects.filter(concentration__exact=3,schoolyear__lte=1,quarter__exact=1)
+    nyma = Course.objects.filter(concentration__exact=1,schoolyear__gte=1,quarter__exact=1)
+    nyta = Course.objects.filter(concentration__exact=2,schoolyear__gte=1,quarter__exact=1)
+    nysa = Course.objects.filter(concentration__exact=3,schoolyear__gte=1,quarter__exact=1)
+
+    # course matrix (winter)
+    tymw = Course.objects.filter(concentration__exact=1,schoolyear__lte=1,quarter__exact=2)
+    tytw = Course.objects.filter(concentration__exact=2,schoolyear__lte=1,quarter__exact=2)
+    tysw = Course.objects.filter(concentration__exact=3,schoolyear__lte=1,quarter__exact=2)
+    nymw = Course.objects.filter(concentration__exact=1,schoolyear__gte=1,quarter__exact=2)
+    nytw = Course.objects.filter(concentration__exact=2,schoolyear__gte=1,quarter__exact=2)
+    nysw = Course.objects.filter(concentration__exact=3,schoolyear__gte=1,quarter__exact=2)
+
+    # course matrix (spring)
+    tyms = Course.objects.filter(concentration__exact=1,schoolyear__lte=1,quarter__exact=3)
+    tyts = Course.objects.filter(concentration__exact=2,schoolyear__lte=1,quarter__exact=3)
+    tyss = Course.objects.filter(concentration__exact=3,schoolyear__lte=1,quarter__exact=3)
+    nyms = Course.objects.filter(concentration__exact=1,schoolyear__gte=1,quarter__exact=3)
+    nyts = Course.objects.filter(concentration__exact=2,schoolyear__gte=1,quarter__exact=3)
+    nyss = Course.objects.filter(concentration__exact=3,schoolyear__gte=1,quarter__exact=3)
+
+    return render_to_response('students/courses.html', {'tym': thisyear_molecular, 'tyt': thisyear_translational, 'tys': thisyear_systems, 'nym': nextyear_molecular, 'nyt': nextyear_translational, 'nys': nextyear_systems, 'courses': allcourses, 'tyma': tyma, 'tyta': tyta, 'tysa': tysa, 'nyma': nyma, 'nyta': nyta, 'nysa': nysa, 'tymw': tymw, 'tytw': tytw, 'tysw': tysw, 'nymw': nymw, 'nytw': nytw, 'nysw': nysw, 'tyms': tyms, 'tyts': tyts, 'tyss': tyss, 'nyms': nyms, 'nyts': nyts, 'nyss': nyss}, context_instance=RequestContext(request))
 
 def calendar(request):
     return render_to_response('students/calendar.html', {'students': Student.objects.all()}, context_instance=RequestContext(request))

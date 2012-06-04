@@ -14,36 +14,54 @@
 
 <div class="tab-content">
     <div class="tab-pane fade in active" id="matrix">
-        <div class="well">
-            Coming soon.
-        </div>
+        <table class="coursematrix table table-bordered">
+            <tr><th>Autumn</th><th>Winter</th><th>Spring</th><td>&nbsp;</td></tr>
+            <tr>
+                <td><div class="well">{% for course in tysa %}<a href="#" rel="popover" id="{{ course.department }}{{ course.number }}C" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a><br/>{% endfor %}</div></td>
+                <td><div class="well">{% for course in tysw %}<a href="#" rel="popover" id="{{ course.department }}{{ course.number }}C" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a><br/>{% endfor %}</div></td>
+                <td><div class="well">{% for course in tyss %}<a href="#" rel="popover" id="{{ course.department }}{{ course.number }}C" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a><br/>{% endfor %}</div></td>
+                <td>Systems/Behavioral/Computational</td>
+            </tr>
+            <tr>
+                <td><div class="well">{% for course in tyta %}<a href="#" rel="popover" id="{{ course.department }}{{ course.number }}C" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a><br/>{% endfor %}</div></td>
+                <td><div class="well">{% for course in tytw %}<a href="#" rel="popover" id="{{ course.department }}{{ course.number }}C" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a><br/>{% endfor %}</div></td>
+                <td><div class="well">{% for course in tyts %}<a href="#" rel="popover" id="{{ course.department }}{{ course.number }}C" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a><br/>{% endfor %}</div></td>
+                <td>Translational</td>
+            </tr>
+            <tr>
+                <td><div class="well">{% for course in tyma %}<a href="#" rel="popover" id="{{ course.department }}{{ course.number }}C" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a><br/>{% endfor %}</div></td>
+                <td><div class="well">{% for course in tymw %}<a href="#" rel="popover" id="{{ course.department }}{{ course.number }}C" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a><br/>{% endfor %}</div></td>
+                <td><div class="well">{% for course in tyms %}<a href="#" rel="popover" id="{{ course.department }}{{ course.number }}C" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a><br/>{% endfor %}</div></td>
+                <td>Cellular/Molecular/Developmental</td>
+            </tr>
+        </table>
     </div>
     <div class="tab-pane fade" id="area">
-        <table class="coursematrix table table-striped">
+        <table class="coursetable table table-striped">
             <tr><th colspan=4>Systems/Behavioral/Computational</th></tr>
-            {% for course in tys %}<tr><td><a href="#" class="btn btn-info" rel="popover" id="{{ course.department }}{{ course.number }}" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a></td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_quarter }} {{course.get_year }}</td></tr>{% endfor %}
-            {% for course in nys %}<tr><td>{{ course.department }} {{ course.number }}</td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_quarter }} {{course.get_year }}</td></tr>{% endfor %}
+            {% for course in tys %}<tr><td><a href="#" class="btn btn-info" rel="popover" id="{{ course.department }}{{ course.number }}A" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a></td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_quarter }} {{course.get_year }}</td></tr>{% endfor %}
+            {% for course in nys %}<tr><td><a href="#" class="btn btn-info" rel="popover" id="{{ course.department }}{{ course.number }}A" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a></td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_quarter }} {{course.get_year }}</td></tr>{% endfor %}
             <tr><td colspan=4>&nbsp;</td></tr>
             <tr><th colspan=4>Translational</th></tr>
-            {% for course in tyt %}<tr><td>{{ course.department }} {{ course.number }}</td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_quarter }} {{course.get_year }}</td></tr>{% endfor %}
-            {% for course in nyt %}<tr><td>{{ course.department }} {{ course.number }}</td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_quarter }} {{course.get_year }}</td></tr>{% endfor %}
+            {% for course in tyt %}<tr><td><a href="#" class="btn btn-info" rel="popover" id="{{ course.department }}{{ course.number }}A" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a></td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_quarter }} {{course.get_year }}</td></tr>{% endfor %}
+            {% for course in nyt %}<tr><td><a href="#" class="btn btn-info" rel="popover" id="{{ course.department }}{{ course.number }}A" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a></td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_quarter }} {{course.get_year }}</td></tr>{% endfor %}
             <tr><td colspan=4>&nbsp;</td></tr>
             <tr><th colspan=4>Cellular/Molecular/Developmental</th></tr>
-            {% for course in tym %}<tr><td>{{ course.department }} {{ course.number }}</td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_quarter }} {{course.get_year }}</td></tr>{% endfor %}
-            {% for course in nym %}<tr><td>{{ course.department }} {{ course.number }}</td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_quarter }} {{course.get_year }}</td></tr>{% endfor %}
+            {% for course in tym %}<tr><td><a href="#" class="btn btn-info" rel="popover" id="{{ course.department }}{{ course.number }}A" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a></td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_quarter }} {{course.get_year }}</td></tr>{% endfor %}
+            {% for course in nym %}<tr><td><a href="#" class="btn btn-info" rel="popover" id="{{ course.department }}{{ course.number }}A" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a></td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_quarter }} {{course.get_year }}</td></tr>{% endfor %}
         </table>
     </div>
     <div class="tab-pane fade" id="time">
-        <table class="coursematrix table table-striped">
+        <table class="coursetable table table-striped">
             <tr><th colspan=4>This Year</th></tr>
-            {% for course in tys %}<tr><td>{{ course.department }} {{ course.number }}</td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_concentration }}</td></tr>{% endfor %}
-            {% for course in tyt %}<tr><td>{{ course.department }} {{ course.number }}</td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_concentration }}</td></tr>{% endfor %}
-            {% for course in tym %}<tr><td>{{ course.department }} {{ course.number }}</td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_concentration }}</td></tr>{% endfor %}
+            {% for course in tys %}<tr><td><a href="#" class="btn btn-info" rel="popover" id="{{ course.department }}{{ course.number }}B" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a></td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_concentration }}</td></tr>{% endfor %}
+            {% for course in tyt %}<tr><td><a href="#" class="btn btn-info" rel="popover" id="{{ course.department }}{{ course.number }}B" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a></td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_concentration }}</td></tr>{% endfor %}
+            {% for course in tym %}<tr><td><a href="#" class="btn btn-info" rel="popover" id="{{ course.department }}{{ course.number }}B" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a></td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_concentration }}</td></tr>{% endfor %}
             <tr><td colspan=4>&nbsp;</td></tr>
             <tr><th colspan=4>Next Year</th></tr>
-            {% for course in nys %}<tr><td>{{ course.department }} {{ course.number }}</td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_concentration }}</td></tr>{% endfor %}
-            {% for course in nyt %}<tr><td>{{ course.department }} {{ course.number }}</td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_concentration }}</td></tr>{% endfor %}
-            {% for course in nym %}<tr><td>{{ course.department }} {{ course.number }}</td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_concentration }}</td></tr>{% endfor %}
+            {% for course in nys %}<tr><td><a href="#" class="btn btn-info" rel="popover" id="{{ course.department }}{{ course.number }}B" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a></td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_concentration }}</td></tr>{% endfor %}
+            {% for course in nyt %}<tr><td><a href="#" class="btn btn-info" rel="popover" id="{{ course.department }}{{ course.number }}B" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a></td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_concentration }}</td></tr>{% endfor %}
+            {% for course in nym %}<tr><td><a href="#" class="btn btn-info" rel="popover" id="{{ course.department }}{{ course.number }}B" title="{{ course.department }} {{ course.number }}" data-content="{{ course.description }}">{{ course.department }} {{ course.number }}</a></td><td>{{ course.title }}</td><td>{{ course.professors }}</td><td>{{ course.get_concentration }}</td></tr>{% endfor %}
         </table>
     </div>
 </div>
@@ -53,7 +71,9 @@
 {% block scriptcontent %}
 <script>
 {% for course in courses %}
-$(function () { $("#{{ course.department }}{{ course.number }}").popover();});
+$(function () { $("#{{ course.department }}{{ course.number }}A").popover();});
+$(function () { $("#{{ course.department }}{{ course.number }}B").popover();});
+$(function () { $("#{{ course.department }}{{ course.number }}C").popover();});
 {% endfor %}
 </script>
 {% endblock %}
