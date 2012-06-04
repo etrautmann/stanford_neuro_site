@@ -1,6 +1,6 @@
 # Create your views here.
 from django.http import HttpResponse
-from main.models import Student, Faculty, Alumnus
+from main.models import Student, Faculty, Alumnus, Course
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 
@@ -63,7 +63,15 @@ def photos(request):
     return render_to_response('students/photos.html', {'students': Student.objects.all()}, context_instance=RequestContext(request))
 
 def courses(request):
-    return render_to_response('students/courses.html', {'students': Student.objects.all()}, context_instance=RequestContext(request))
+    thisyear_molecular = Course.objects.filter(concentration__exact=1,schoolyear__lte=1)
+    thisyear_translational = Course.objects.filter(concentration__exact=2,schoolyear__lte=1)
+    thisyear_systems = Course.objects.filter(concentration__exact=3,schoolyear__lte=1)
+    nextyear_molecular = Course.objects.filter(concentration__exact=1,schoolyear__gte=1)
+    nextyear_translational = Course.objects.filter(concentration__exact=2,schoolyear__gte=1)
+    nextyear_systems = Course.objects.filter(concentration__exact=3,schoolyear__gte=1)
+    allcourses = Course.objects.all()
+
+    return render_to_response('students/courses.html', {'tym': thisyear_molecular, 'tyt': thisyear_translational, 'tys': thisyear_systems, 'nym': nextyear_molecular, 'nyt': nextyear_translational, 'nys': nextyear_systems, 'courses': allcourses}, context_instance=RequestContext(request))
 
 def calendar(request):
     return render_to_response('students/calendar.html', {'students': Student.objects.all()}, context_instance=RequestContext(request))

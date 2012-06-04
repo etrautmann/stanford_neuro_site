@@ -5,10 +5,16 @@
     <h2>Student Profiles</h2>
     {% if students %}
         <table style="margin-top: 20px;" class="table table-striped table-bordered table-condensed">
-            <thead><tr><td><b>Name</b></td><td><b>E-mail</b></td></tr></thead>
+            <thead><tr><td><b>Name</b></td><td><b>Lab</b></td></tr></thead>
             <tbody>
                 {% for student in students %}
-                    <tr><td>{{ student.firstname }}&nbsp;{{ student.lastname }}</td><td>{{ student.email }}</td></tr>
+                <tr><td><img src="{{ STATIC_URL }}{{ student.image }}" height=80 width=80 class="studentpicture" /><a href="mailto:{{ student.email }}">{{ student.firstname }}&nbsp;{{ student.lastname }}</a></td>
+                    {% if student.labwebsite|length > 1 %}
+                    <td><a href="{{ student.labwebsite }}">{{ student.lab }}</a></td>
+                    {% else %}
+                    <td>{{ student.lab }}</td>
+                    {% endif %}
+                </tr>
                 {% endfor %}
             </tbody>
         </table>
