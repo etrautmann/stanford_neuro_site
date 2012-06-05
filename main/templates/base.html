@@ -78,6 +78,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li><a href="/students/profiles">Student Profiles</a></li>
+                  <li><a href="/alumni/profiles">Alumni Profiles</a></li>
                   <li><a href="/students/events">Calendar of Events</a></li>
                   <li><a href="/students/courses">Courses</a></li>
                   <li><a href="/students/photos">Photos</a></li>
@@ -103,7 +104,7 @@
               <!--  News and Media  -->
               <li class="dropdown" id="news_media">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#news_media">
-                 News and Media 
+                 News and Media
                   <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
@@ -144,10 +145,10 @@
         <div class="row">
           {% block fullcontent %}
           <div class="span2">
-            {% block sidebar %}{% endblock %}          
+            {% block sidebar %}{% endblock %}
           </div>
           <div class="span9">
-            {% block content %}{% endblock %}          
+            {% block content %}{% endblock %}
           </div><!--/span-->
           {% endblock %}
         </div><!--/row-->
@@ -250,7 +251,7 @@
 <script src="{{ STATIC_URL }}js/bootstrap-collapse.js"></script>
 <script src="{{ STATIC_URL }}js/bootstrap-carousel.js"></script>
 <script src="{{ STATIC_URL }}js/bootstrap-typeahead.js"></script>
-
+{% block scriptcontent %}{% endblock %}
 </div> <!-- wrapper -->
 </body>
 </html>

@@ -24,12 +24,13 @@ urlpatterns = patterns('main.views',
 
     ### Student ###
     url(r'^students/profiles', 'student_profiles'),
+    url(r'^alumni/profiles', 'alumni_profiles'),
     url(r'^students/intranet', 'student_intranet'),
     url(r'^students/courses', 'courses'),
     url(r'^students/photos', 'photos'),
     url(r'^students/events', 'calendar'),
     #url(r'^students/news', 'news'),
-    
+
     ### Faculty ###
     url(r'^faculty/profiles', 'faculty_profiles'),
     #url(r'^faculty/intranet', 'faculty_intranet'),
