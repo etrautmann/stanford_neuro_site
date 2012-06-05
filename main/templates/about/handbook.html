@@ -1,8 +1,11 @@
 {% extends "L2_about.html" %}
 {% block title %}Program Handbook{% endblock %}
+{% block handbook %}class="active"{% endblock %}
 
 {% block content %}
-    <h2>Program Handbook</h2><a class="btn btn-primary" href="/about/handbook/download">Download</a>
-	<embed height="100%" width="100%"  name="plugin" src="{{ STATIC_URL }}handbook.pdf"  type="application/pdf">
+    <span class="download-header">Program Handbook</span> <a class="btn btn-primary download" href="/about/handbook/download">Download&nbsp;<i class="icon-download-alt icon-white"></i></a>
+    <div class="download-content">
+        <embed height="100%" width="100%"  name="plugin" src="{{ STATIC_URL }}handbook.pdf"  type="application/pdf" />
+    </div>
 </div>
 {% endblock %}

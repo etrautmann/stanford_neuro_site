@@ -5,18 +5,18 @@
 <!-- ==================================================== -->
 {% block sidebar %} 
 
-<ul class="nav nav-list">
+<ul class="nav nav-list well">
   <li class="nav-header">Prospective Students</li>
-  <li><a href="program_of_study"> Program of Study </a></li>
-  <li><a href="why_stanford">  Why Stanford?</a></li>
-  <li><a href="meet_current_students">  Meet Current Students</a></li>
-  <li><a href="FAQ">  FAQ </a></li>
-  <li><a href="admissions">  Admissions </a></li>
-  <li><a href="funding_opportunities">  Funding Opportunities </a></li>
+  <li {% block programofstudy %}{% endblock %}><a href="program_of_study"> Program of Study </a></li>
+  <li {% block whystanford %}{% endblock %}><a href="why_stanford">  Why Stanford?</a></li>
+  <li {% block meetstudents %}{% endblock %}><a href="meet_current_students">  Meet Current Students</a></li>
+  <li {% block faq %}{% endblock %}><a href="FAQ">  FAQ </a></li>
+  <li {% block admissions %}{% endblock %}><a href="admissions">  Admissions </a></li>
+  <li {% block funding %}{% endblock %}><a href="funding_opportunities">  Funding Opportunities </a></li>
 
   <li class="divider"></li>
   <li><a href="contact_us">  Contact Us </a></li>
-  <li><a href="apply_now">  Apply Now </a></li>
+	<li {% block applynow %}{% endblock %} ><a href="apply_now">  Apply Now </a></li>
 </ul>
 
 {% endblock %}

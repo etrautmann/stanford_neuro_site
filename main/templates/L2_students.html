@@ -5,13 +5,13 @@
 <!-- ==================================================== -->
 {% block sidebar %} 
 
-<ul class="nav nav-list">
+<ul class="nav nav-list well">
   <li class="nav-header">Students</li>
-  <li><a href="/students/profiles"> Student Profiles</a></li>
-  <li><a href="/alumni/profiles"> Alumni Profiles</a></li>
-  <li><a href="/students/courses">  Courses</a></li>
-  <li><a href="/students/photos"> Photos</a></li>
-  <li><a href="/students/events"> Calendar </a></li>
+	<li {% block studentprofiles %}{% endblock %}><a href="/students/profiles"> Student Profiles</a></li>
+  <li {% block alumniprofiles %}{% endblock %}><a href="/alumni/profiles"> Alumni Profiles</a></li>
+  <li {% block courses %}{% endblock %}><a href="/students/courses">  Courses</a></li>
+  <li {% block photos %}{% endblock %}><a href="/students/photos"> Photos</a></li>
+  <li {% block calendar %}{% endblock %}><a href="/students/events"> Calendar </a></li>
   <li class="divider"></li>
   <li><a href="http://neuroscienceprogram.stanford.edu/students"> Intranet </a></li>
   <li><a href="http://neuroscienceprogram.stanford.edu/evals"> Journal Club </a></li>

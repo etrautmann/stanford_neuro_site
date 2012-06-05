@@ -67,9 +67,9 @@ def courses(request):
     thisyear_molecular = Course.objects.filter(concentration__exact=1,schoolyear__lte=1)
     thisyear_translational = Course.objects.filter(concentration__exact=2,schoolyear__lte=1)
     thisyear_systems = Course.objects.filter(concentration__exact=3,schoolyear__lte=1)
-    nextyear_molecular = Course.objects.filter(concentration__exact=1,schoolyear__gte=1)
-    nextyear_translational = Course.objects.filter(concentration__exact=2,schoolyear__gte=1)
-    nextyear_systems = Course.objects.filter(concentration__exact=3,schoolyear__gte=1)
+    nextyear_molecular = Course.objects.filter(concentration__exact=1,schoolyear__gte=2)
+    nextyear_translational = Course.objects.filter(concentration__exact=2,schoolyear__gte=2)
+    nextyear_systems = Course.objects.filter(concentration__exact=3,schoolyear__gte=2)
     allcourses = Course.objects.all()
 
     # course matrix (autumn)
@@ -125,7 +125,7 @@ def news(request):
 
 ### Other ###
 def download_handbook(request): 
-    abspath = open('/Users/Niru/Sites/stanford_neuro_site/main/static/handbook.pdf','r')
+    abspath = open('/Users/nirum/Dropbox/neuro/main/static/handbook.pdf','r')
     response = HttpResponse(content=abspath.read())
     response['Content-Type']= 'application/pdf'
     response['Content-Disposition'] = 'attachment; filename=%s.pdf' \

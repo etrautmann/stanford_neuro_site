@@ -1,6 +1,7 @@
 /* Colorscheme */
 @main: #020202;
-@gray: #999999;
+@gray: #d5d0c0;
+@beige: #F8F6EA;
 @grad1: #7F140B;
 @grad2: #570D08;
 @grad3: #530B02;
@@ -108,7 +109,7 @@ ul a:hover {
 
 /* courses */
 .coursetable {
-    width: 900px;
+    width: 850px;
     margin-bottom: 50px;
 }
 
@@ -118,7 +119,9 @@ ul a:hover {
     text-align: center;
     padding: 10px 15px;
 }
-
+.table td {
+    background-color: #f8f6ea;
+}
 .coursetable th {
     font-size: 20px;
     text-align: center;
@@ -126,13 +129,14 @@ ul a:hover {
 }
 
 .coursematrix {
-    width: 900px;
+    width: 850px;
     text-align: center;
 }
 
 .coursematrix td {
     text-align: center;
     width: 150px;
+    background-color: @white;
 }
 
 .coursematrix .modifier {
@@ -151,5 +155,16 @@ ul a:hover {
 
 #mainContent {
 	margin-bottom: 50px;
-	}
+}
 
+.well {
+    background: @beige;
+}
+
+.navbar .brand {
+  color: @white;
+}
+
+.navbar .nav > li > a {
+  color: @gray;
+}

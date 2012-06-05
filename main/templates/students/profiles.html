@@ -1,5 +1,6 @@
 {% extends "L2_students.html" %}
 {% block title %}Student Profiles{% endblock %}
+{% block studentprofiles %}class="active"{% endblock %}
 
 {% block content %}
     <h2>Student Profiles</h2>
@@ -8,7 +9,7 @@
             <thead><tr><td><b>Name</b></td><td><b>Lab</b></td></tr></thead>
             <tbody>
                 {% for student in students %}
-                <tr><td><img src="{{ STATIC_URL }}{{ student.image }}" height=80 width=80 class="studentpicture" /><a href="mailto:{{ student.email }}">{{ student.firstname }}&nbsp;{{ student.lastname }}</a></td>
+                <tr><td><a href="mailto:{{ student.email }}" rel="popover" id="{{ student.firstname }}{{ student.lastname }}" title="{{ student.firstname }} {{ student.lastname }}" data-content="<img src='{{ STATIC_URL }}{{ student.image }}' width=150 class='studentpicture' />">{{ student.firstname }}&nbsp;{{ student.lastname }}</a></td>
                     {% if student.labwebsite|length > 1 %}
                     <td><a href="{{ student.labwebsite }}">{{ student.lab }}</a></td>
                     {% else %}
@@ -22,4 +23,12 @@
         <p style="margin-top: 20px;">Error.<p>
     {% endif %}
 </div>
+{% endblock %}
+
+{% block scriptcontent %}
+<script>
+{% for student in students %}
+$(function () { $("#{{ student.firstname }}{{ student.lastname }}").popover();});
+{% endfor %}
+</script>
 {% endblock %}
