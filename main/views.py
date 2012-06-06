@@ -1,6 +1,6 @@
 # Create your views here.
 from django.http import HttpResponse
-from main.models import Student, Faculty, Alumnus, Course
+from main.models import Student, Faculty, Alumnus, Course, Theme
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 
@@ -134,4 +134,9 @@ def download_handbook(request):
 
 ### Faculty ###
 def faculty_profiles(request):
-    return render_to_response('faculty/profiles.html', {'faculty': Faculty.objects.all()}, context_instance=RequestContext(request))
+		themes = Theme.objects.all()
+		faculty_split = {}
+		for k in themes:
+				faculty_split[k] = Faculty.objects.filter(themes__exact=k)
+
+		return render_to_response('faculty/profiles.html', {'faculty': Faculty.objects.all(), 'fsplit': faculty_split, 'themes': themes}, context_instance=RequestContext(request))

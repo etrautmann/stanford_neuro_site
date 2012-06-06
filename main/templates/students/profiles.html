@@ -9,7 +9,7 @@
             <thead><tr><td><b>Name</b></td><td><b>Lab</b></td></tr></thead>
             <tbody>
                 {% for student in students %}
-                <tr><td><a href="mailto:{{ student.email }}" rel="popover" id="{{ student.firstname }}{{ student.lastname }}" title="{{ student.firstname }} {{ student.lastname }}" data-content="<img src='{{ STATIC_URL }}{{ student.image }}' width=150 class='studentpicture' />">{{ student.firstname }}&nbsp;{{ student.lastname }}</a></td>
+                <tr><td><a href="mailto:{{ student.email }}" rel="popover" id="{{ student.id }}" title="{{ student.firstname }} {{ student.lastname }}" data-content="<img src='{{ STATIC_URL }}{{ student.image }}' width=150 class='studentpicture' />">{{ student.firstname }}&nbsp;{{ student.lastname }}</a></td>
                     {% if student.labwebsite|length > 1 %}
                     <td><a href="{{ student.labwebsite }}">{{ student.lab }}</a></td>
                     {% else %}
@@ -28,7 +28,7 @@
 {% block scriptcontent %}
 <script>
 {% for student in students %}
-$(function () { $("#{{ student.firstname }}{{ student.lastname }}").popover();});
+$(function () { $("#{{ student.id }}").popover();});
 {% endfor %}
 </script>
 {% endblock %}
