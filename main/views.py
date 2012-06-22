@@ -1,6 +1,6 @@
 # Create your views here.
 from django.http import HttpResponse
-from main.models import Student, Faculty, Alumnus, Course, Theme
+from main.models import Student, Faculty, Alumnus, Course, Theme, FAQ
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 
@@ -32,8 +32,8 @@ def why_stanford(request):
 def meet_current_students(request):
     return render_to_response('prospective_students/meet_current_students.html', [], context_instance=RequestContext(request))
 
-def FAQ(request):
-    return render_to_response('prospective_students/FAQ.html', [], context_instance=RequestContext(request))
+def getFAQ(request):
+    return render_to_response('prospective_students/FAQ.html', {'faqs': FAQ.objects.all()}, context_instance=RequestContext(request))
 
 def admissions(request):
     return render_to_response('prospective_students/admissions.html', [], context_instance=RequestContext(request))

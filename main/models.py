@@ -104,3 +104,10 @@ class Course(models.Model):
 						return "Translational"
 				elif self.concentration == 3:
 						return "Systems/Behavioral/Computational"
+
+class FAQ(models.Model):
+		question = models.TextField()
+		answer = models.TextField()
+
+		def __unicode__(self):
+				return self.question
