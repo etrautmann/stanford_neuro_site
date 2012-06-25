@@ -1,35 +1,39 @@
 {% extends "L2_prospective_students.html" %}
+{% load webdesign %}
 {% block title %}Meet Current Students{% endblock %}
 {% block meetstudents %}class="active"{% endblock %}
 
 {% block content %}
     <h2>Meet Current Students</h2>
-    <div class="studentprofile well" style="height: 130px; margin-top: 20px;">
-        <div style="float:left">
+    <div class="studentprofile well" style="height: 175px; margin-top: 20px;">
+        <div style="float:left; width: 75%;">
             <h3>Jane Smith</h3>
             <p>Jane's research focuses on x, y, and and z. </p>
+            {% lorem 1 p %}
         </div>
         <div style="float:right">
-            <img src="http://placehold.it/128x128" /> 
-        </div>
-    </div>
-
-    <div class="studentprofile well" style="height: 190px; margin-top: 20px;">
-        <div style="float:left; width: 300px;">
-            <h3>Jane Smith</h3>
-            <p>Jane's research focuses on x, y, and and z. </p>
-        </div>
-        <div style="float:right; width: 180px;">
             <img src="http://placehold.it/160x180" /> 
         </div>
     </div>
 
-    <div class="studentprofile well" style="height: 190px; margin-top: 20px;">
-        <div style="float:left; width: 300px;">
-            <h3>Jane Smith</h3>
-            <p>Jane's research focuses on x, y, and and z. </p>
+    <div class="studentprofile well" style="height: 175px; margin-top: 20px;">
+        <div style="float:left; width: 75%;">
+            <h3>Sally Student</h3>
+            <p>Sally is studying neuroscience because of some interesting reason. </p>
+            {% lorem 1 p %}
         </div>
-        <div style="float:right; width: 180px;">
+        <div style="float:right">
+            <img src="http://placehold.it/160x180" /> 
+        </div>
+    </div>
+
+    <div class="studentprofile well" style="height: 175px; margin-top: 20px;">
+        <div style="float:left; width: 75%;">
+            <h3>John Doe</h3>
+            <p>John is a student in Prof. X's lab. </p>
+            {% lorem 1 p %}
+        </div>
+        <div style="float:right">
             <img src="http://placehold.it/160x180" /> 
         </div>
     </div>
