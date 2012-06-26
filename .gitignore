@@ -36,4 +36,6 @@ Icon?
 Thumbs.db
 
 # Other
-.swp
+*.swp
+*.sublime-project
+*.sublime-workspace
