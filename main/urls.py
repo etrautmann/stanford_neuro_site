@@ -8,8 +8,7 @@ urlpatterns = patterns('main.views',
 
     # about
     url(r'^about/info', 'about'),
-    url(r'^about/handbook/download', 'download_handbook'),
-    url(r'^about/handbook', 'handbook'),
+    url(r'^about/contact', 'contact'),
 
     # prospective students
     #url(r'^prospective_students', 'prospective_students'),

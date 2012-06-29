@@ -20,6 +20,8 @@ def about(request):
 def handbook(request):
     return render_to_response('about/handbook.html', [], context_instance=RequestContext(request))
 
+def contact(request):
+    return render_to_response('about/contact.html', [], context_instance=RequestContext(request))
 
 
 ### Prospective Students ###
