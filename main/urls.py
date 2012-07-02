@@ -37,7 +37,7 @@ urlpatterns = patterns('main.views',
     ### News & Media ###
     #url(r'^media', 'media'),
     #url(r'^media/publications', 'publications'),
-    #url(r'^media/calender_of_events', 'calendar_of_events'),
+    url(r'^news_media/upcoming_events', 'upcoming_events'),
     #url(r'^media/press_releases', 'press_releases'),
     #url(r'^media/twitter', 'twitter'),
     #url(r'^media/neuroblog', 'neuroblog'),
