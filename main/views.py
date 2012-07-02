@@ -43,11 +43,14 @@ def admissions(request):
 def funding_opportunities(request):
     return render_to_response('prospective_students/funding_opportunities.html', [], context_instance=RequestContext(request))
 
+def diversity(request):
+    return render_to_response('prospective_students/diversity.html', [], context_instance=RequestContext(request))
+
 def contact_us(request):
     return render_to_response('prospective_students/contact_us.html', [], context_instance=RequestContext(request))
 
-def apply_now(request):
-    return render_to_response('prospective_students/apply_now.html', [], context_instance=RequestContext(request))
+def how_to_apply(request):
+    return render_to_response('prospective_students/how_to_apply.html', [], context_instance=RequestContext(request))
 
 
 
