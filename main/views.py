@@ -112,8 +112,8 @@ def news(request):
 #def publications(request):
     #return render_to_response('media/publications.html', [], context_instance=RequestContext(request))
 #
-#def calendar_of_events(request):
-    #return render_to_response('media/calendar_of_events.html', [], context_instance=RequestContext(request))
+def upcoming_events(request):
+    return render_to_response('news_media/upcoming_events.html', [], context_instance=RequestContext(request))
 #
 #def press_releases(request):
     #return render_to_response('media/press_releases.html', [], context_instance=RequestContext(request))
