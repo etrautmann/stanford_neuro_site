@@ -43,6 +43,9 @@ def admissions(request):
 def funding_opportunities(request):
     return render_to_response('prospective_students/funding_opportunities.html', [], context_instance=RequestContext(request))
 
+def diversity(request):
+    return render_to_response('prospective_students/diversity.html', [], context_instance=RequestContext(request))
+
 def contact_us(request):
     return render_to_response('prospective_students/contact_us.html', [], context_instance=RequestContext(request))
 
