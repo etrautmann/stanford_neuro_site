@@ -20,7 +20,7 @@ urlpatterns = patterns('main.views',
     url(r'^prospective_students/diversity', 'diversity'),
     url(r'^prospective_students/funding_opportunities', 'funding_opportunities'),
     url(r'^prospective_students/contact_us', 'contact_us'),
-    url(r'^prospective_students/apply_now', 'apply_now'),
+    url(r'^prospective_students/how_to_apply', 'how_to_apply'),
 
     ### Student ###
     url(r'^students/profiles', 'student_profiles'),
