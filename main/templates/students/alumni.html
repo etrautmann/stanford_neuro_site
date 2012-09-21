@@ -10,12 +10,12 @@
             <tbody>
                 {% for alumnus in alumni %}
 								<tr><td>
-												{% if alumnus.links|length > 1 %}
-												<a href="{{ alumnus.links }}">{{ alumnus.firstname }}&nbsp;{{ alumnus.lastname }}</a>
+												{% if alumnus.Website|length > 1 %}
+												<a href="{{ alumnus.Website }}">{{ alumnus.FirstName }}&nbsp;{{ alumnus.LastName }}</a>
 												{% else %}
-												{{ alumnus.firstname }}&nbsp;{{ alumnus.lastname }}
+												{{ alumnus.FirstName }}&nbsp;{{ alumnus.LastName }}
 												{% endif %}
-								</td><td>{{ alumnus.advisor }}</td><td>{{ alumnus.currentpos }}</td></tr>
+								</td><td>{{ alumnus.Advisor }}</td><td>{{ alumnus.CurrentPosition }}</td></tr>
                 {% endfor %}
             </tbody>
         </table>

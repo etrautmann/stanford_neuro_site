@@ -6,16 +6,20 @@
     <h2>Student Profiles</h2>
     {% if students %}
         <table style="margin-top: 20px;" class="table table-bordered table-condensed">
-            <thead><tr><td><b>Name</b></td><td><b>Lab</b></td></tr></thead>
+            <thead><tr><td><b>Name</b></td><td><b>Lab</b></td><td><b>Department</b></td></tr></thead>
             <tbody>
                 {% for student in students %}
-                <tr><td><a href="mailto:{{ student.email }}" rel="popover" id="{{ student.id }}" title="{{ student.firstname }} {{ student.lastname }}" data-content="<img src='{{ STATIC_URL }}{{ student.image }}' width=150 class='studentpicture' />">{{ student.firstname }}&nbsp;{{ student.lastname }}</a></td>
-                    {% if student.labwebsite|length > 1 %}
-                    <td><a href="{{ student.labwebsite }}">{{ student.lab }}</a></td>
-                    {% else %}
-                    <td>{{ student.lab }}</td>
-                    {% endif %}
+		{% if student.sunetid != 'huguenar' %}
+		<tr>
+			<td><a href="mailto:{{ student.Email }}">{{ student.NAME_FIRST }} {{ student.NAME_LAST }}</a></td>
+                    	{% if student.PI == None %}
+			<td>N/A</td>
+			{% else %}
+			<td>{{ student.PI }}</td>
+			{% endif %}
+			<td>{{ student.Department }}</td>
                 </tr>
+		{% endif %}
                 {% endfor %}
             </tbody>
         </table>
@@ -28,7 +32,7 @@
 {% block scriptcontent %}
 <script>
 {% for student in students %}
-$(function () { $("#{{ student.id }}").popover();});
+$(function () { $("#{{ student.sunetid }}").popover();});
 {% endfor %}
 </script>
 {% endblock %}

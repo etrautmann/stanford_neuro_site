@@ -32,11 +32,11 @@
 						{% for prof in faculty %}
 						<div class="accordion-group">
 								<div class="accordion-heading">
-										<a class="accordion-toggle" data-toggle="collapse" data-parent="#facultyAccordion" href="#{{ prof.id }}"><span>{{ prof.firstname }} {{ prof.lastname }}, {{ prof.degree }}, {{ prof.department }}</span><span style="float:right;">{{ prof.email }}</span></a>
+										<a class="accordion-toggle" data-toggle="collapse" data-parent="#facultyAccordion" href="#{{ prof.sunetid }}"><span>{{ prof.firstname }} {{ prof.lastname }}</span><span style="float:right;">{{ prof.email }}</span></a>
 								</div>
-								<div id="{{ prof.id }}" class="accordion-body collapse" style="height: 0px; ">
+								<div id="{{ prof.sunetid }}" class="accordion-body collapse" style="height: 0px; ">
 										<div class="accordion-inner">
-												{{ prof.blurb }}
+												{{ prof.Summary }}
 												{% if prof.website|length > 1 %}
 														<br /><a href="{{ prof.website }}" style="color: #999;">{{ prof.website }}</a>
 												{% endif %}
@@ -46,16 +46,16 @@
 						{% endfor %}
 				</div>
 				{% else %}
-				<p style="margin-top: 20px;">Error.<p>
+				<p style="margin-top: 20px;">Error. Please contact the webmaster.<p>
 				{% endif %}
 		</div>
 		<div class="tab-pane fade" id="brief">
 				{% if faculty %}
 				<table style="margin-bottom: 50px;" class="table table-bordered table-condensed">
-						<thead><tr><td><b>Name</b></td><td><b>Blurb</td></b><td><b>E-mail</b></td></tr></thead>
+						<thead><tr><td><b>Name</b></td><td><b>Interests</td></b><td><b>E-mail</b></td></tr></thead>
 						<tbody>
 								{% for prof in faculty %}
-                                <tr><td><a href="{{ prof.website }}">{{ prof.firstname }}&nbsp;{{ prof.lastname }}</a></td><td>{{ prof.tagline }}</td><td><a href="mailto:{{ prof.email }}">{{ prof.email }}</a></td></td></tr>
+                                <tr><td><a href="{{ prof.website }}">{{ prof.firstname }}&nbsp;{{ prof.lastname }}</a></td><td>{{ prof.Interests }}</td><td><a href="mailto:{{ prof.email }}">{{ prof.email }}</a></td></td></tr>
 						{% endfor %}
 				</tbody>
 		</table>
@@ -66,8 +66,8 @@
 {% for key, group in fsplit.items %}
 <div class="tab-pane fade" id="{{ key|slugify }}">
 		<h3 style="text-align: left; margin-bottom: 10px;">{{ key }}</h3>
-		<table style="margin-bottom: 50px;" class="table table-bordered table-condensed"><tr><th>Name</th><th>Blurb</th><th>Department</th></tr>
-            {% for item in group %}<tr><td><a href="{{ item.website }}">{{ item.firstname }}&nbsp;{{ item.lastname }}</a></td><td>{{ item.tagline }}</td><td>{{ item.department }}</td></tr>{% endfor %}
+		<table style="margin-bottom: 50px;" class="table table-bordered table-condensed"><tr><th>Name</th><th>Interests</th><th>E-mail</th></tr>
+            {% for item in group %}<tr><td><a href="{{ item.website }}">{{ item.firstname }}&nbsp;{{ item.lastname }}</a></td><td>{{ item.Interests }}</td><td><a href="mailto:{{ item.email }}">{{ item.email }}</a></td></tr>{% endfor %}
 		</table>
 		</div>
 		{% endfor %}
