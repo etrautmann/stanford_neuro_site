@@ -39,3 +39,9 @@ Thumbs.db
 *.swp
 *.sublime-project
 *.sublime-workspace
+
+# Django specifc
+settings.py
+__init__.py
+manage.py
+wsgi.py
