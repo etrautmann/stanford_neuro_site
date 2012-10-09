@@ -1,0 +1,38 @@
+{% extends "L2_students.html" %}
+{% block title %}Student Profiles{% endblock %}
+{% block studentprofiles %}class="active"{% endblock %}
+
+{% block content %}
+    <h2>Student Profiles</h2>
+    {% if students %}
+        <table style="margin-top: 20px;" class="table table-bordered table-condensed">
+            <thead><tr><td><b>Name</b></td><td><b>Lab</b></td><td><b>Department</b></td></tr></thead>
+            <tbody>
+                {% for student in students %}
+		{% if student.sunetid != 'huguenar' %}
+		<tr>
+			<td><a href="mailto:{{ student.Email }}">{{ student.NAME_FIRST }} {{ student.NAME_LAST }}</a></td>
+                    	{% if student.PI == None %}
+			<td>N/A</td>
+			{% else %}
+			<td>{{ student.PI }}</td>
+			{% endif %}
+			<td>{{ student.Department }}</td>
+                </tr>
+		{% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p style="margin-top: 20px;">Error.<p>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scriptcontent %}
+<script>
+{% for student in students %}
+$(function () { $("#{{ student.sunetid }}").popover();});
+{% endfor %}
+</script>
+{% endblock %}
