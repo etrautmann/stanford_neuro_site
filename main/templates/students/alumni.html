@@ -1,0 +1,26 @@
+{% extends "L2_students.html" %}
+{% block title %}Alumni Profiles{% endblock %}
+{% block alumniprofiles %}class="active"{% endblock %}
+
+{% block content %}
+    <h2>Alumni Profiles</h2>
+    {% if alumni %}
+        <table style="margin-top: 20px;" class="table table-bordered table-condensed">
+						<thead><tr><td><b>Name</b></td><td><b>Advisor</b></td><td><b>Current Position</b></td></tr></thead>
+            <tbody>
+                {% for alumnus in alumni %}
+								<tr><td>
+												{% if alumnus.Website|length > 1 %}
+												<a href="{{ alumnus.Website }}">{{ alumnus.FirstName }}&nbsp;{{ alumnus.LastName }}</a>
+												{% else %}
+												{{ alumnus.FirstName }}&nbsp;{{ alumnus.LastName }}
+												{% endif %}
+								</td><td>{{ alumnus.Advisor }}</td><td>{{ alumnus.CurrentPosition }}</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p style="margin-top: 20px;">Error.<p>
+    {% endif %}
+</div>
+{% endblock %}

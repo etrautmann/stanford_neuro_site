@@ -1,0 +1,76 @@
+{% extends "L2_faculty.html" %}
+{% block title %}Faculty Profiles{% endblock %}
+{% block facultyprofiles %}class="active"{% endblock %}
+{% block content %}
+<div>
+		<h2>Faculty Profiles</h2>
+		<p>Our Training Faculty are {{ faculty|length }} highly distinguished scientists who have made fundamental discoveries in all areas of neuroscience from molecules to cognition. They have international reputations for excellence in both research and teaching, and are actively involved in training of Program students through direct mentorship, thesis committee participation, instruction of program courses, and/or participation in program leadership. <b>Please do not contact faculty members about admissions into the program.</b> Browse our faculty by sorting through one of the methods below:</p>
+</div>
+
+<ul id="facultyTabs" class="nav nav-pills">
+		<li><a href="#all" data-toggle="tab">Detailed Listing</a></li>
+		<li><a href="#brief" data-toggle="tab">Concise Listing</a></li>
+		{% if fsplit %}
+		<li class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#"> Sort by Research Focus<i class="icon-caret-down"></i></a>
+		<ul class="dropdown-menu">
+				{% for key, group in fsplit.items %}
+				<li><a href="#{{ key|slugify }}" data-toggle="tab">{{ key }}</a></li>
+				{% endfor %}
+		</ul>
+		</li>
+		{% endif %}
+		</li>
+</ul>
+
+<div class="tab-content">
+		<div class="tab-pane fade in active" id="fake"></div>
+		<div class="tab-pane fade" id="all">
+				{% if faculty %}
+				<div class="accordion" id="facultyAccordion">
+						<div class="alert alert-error"><button class="close" data-dismiss="alert">×</button>Click on a row to expand:</div>
+						{% for prof in faculty %}
+						<div class="accordion-group">
+								<div class="accordion-heading">
+										<a class="accordion-toggle" data-toggle="collapse" data-parent="#facultyAccordion" href="#{{ prof.sunetid }}"><span>{{ prof.firstname }} {{ prof.lastname }}</span><span style="float:right;">{{ prof.email }}</span></a>
+								</div>
+								<div id="{{ prof.sunetid }}" class="accordion-body collapse" style="height: 0px; ">
+										<div class="accordion-inner">
+												{{ prof.Summary }}
+												{% if prof.website|length > 1 %}
+														<br /><a href="{{ prof.website }}" style="color: #999;">{{ prof.website }}</a>
+												{% endif %}
+										</div>
+								</div>
+						</div>
+						{% endfor %}
+				</div>
+				{% else %}
+				<p style="margin-top: 20px;">Error. Please contact the webmaster.<p>
+				{% endif %}
+		</div>
+		<div class="tab-pane fade" id="brief">
+				{% if faculty %}
+				<table style="margin-bottom: 50px;" class="table table-bordered table-condensed">
+						<thead><tr><td><b>Name</b></td><td><b>Interests</td></b><td><b>E-mail</b></td></tr></thead>
+						<tbody>
+								{% for prof in faculty %}
+                                <tr><td><a href="{{ prof.website }}">{{ prof.firstname }}&nbsp;{{ prof.lastname }}</a></td><td>{{ prof.Interests }}</td><td><a href="mailto:{{ prof.email }}">{{ prof.email }}</a></td></td></tr>
+						{% endfor %}
+				</tbody>
+		</table>
+		{% else %}
+		<p style="margin-top: 20px;">Error.<p>
+		{% endif %}
+</div>
+{% for key, group in fsplit.items %}
+<div class="tab-pane fade" id="{{ key|slugify }}">
+		<h3 style="text-align: left; margin-bottom: 10px;">{{ key }}</h3>
+		<table style="margin-bottom: 50px;" class="table table-bordered table-condensed"><tr><th>Name</th><th>Interests</th><th>E-mail</th></tr>
+            {% for item in group %}<tr><td><a href="{{ item.website }}">{{ item.firstname }}&nbsp;{{ item.lastname }}</a></td><td>{{ item.Interests }}</td><td><a href="mailto:{{ item.email }}">{{ item.email }}</a></td></tr>{% endfor %}
+		</table>
+		</div>
+		{% endfor %}
+</div>
+</div>
+{% endblock %}

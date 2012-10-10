@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from main.models import Student, Faculty, Alumnus, Course, Theme, FAQ
 from django.template import RequestContext
 from django.shortcuts import render_to_response
+import datetime
 
 ### Other ###
 def notfound(request):
@@ -69,39 +70,56 @@ def photos(request):
 
 def courses(request):
     # all courses
-    thisyear_molecular = Course.objects.filter(concentration__exact=1,schoolyear__lte=1)
-    thisyear_translational = Course.objects.filter(concentration__exact=2,schoolyear__lte=1)
-    thisyear_systems = Course.objects.filter(concentration__exact=3,schoolyear__lte=1)
-    nextyear_molecular = Course.objects.filter(concentration__exact=1,schoolyear__gte=2)
-    nextyear_translational = Course.objects.filter(concentration__exact=2,schoolyear__gte=2)
-    nextyear_systems = Course.objects.filter(concentration__exact=3,schoolyear__gte=2)
     allcourses = Course.objects.all()
+    # systems/behavioral/computational
+    sys = Course.objects.filter(Area_Fulfill__exact='Systems/Behavioral/Computational')
+    # translational
+    trans = Course.objects.filter(Area_Fulfill__exact='Translational')
+    # cellular/molecular/developmental
+    cellmol = Course.objects.filter(Area_Fulfill__exact='Cellular/Molecular/Developmental')
+    # none
+    none = Course.objects.filter(Area_Fulfill__exact='none')
+    # get year
+    lastyearstr = str(datetime.datetime.now().year-1)
+    thisyearstr = str(datetime.datetime.now().year)
+    nextyearstr = str(datetime.datetime.now().year+1)
+    nextnextyearstr = str(datetime.datetime.now().year+2)
+    month = datetime.datetime.now().month
+    if month < 6:
+	tystr = lastyearstr + '-' + thisyearstr[2:4]
+	nystr = thisyearstr + '-' + nextyearstr[2:4]
+    else:
+	tystr = thisyearstr + '-' + nextyearstr[2:4]
+	nystr = nextyearstr + '-' + nextnextyearstr[2:4]
+    # this year
+    thisyear = Course.objects.filter(Next_Offered__exact=tystr).exclude(Area_Fulfill__exact='none')
+    nextyear = Course.objects.filter(Next_Offered__exact=nystr).exclude(Area_Fulfill__exact='none')
 
     # course matrix (autumn)
-    tyma = Course.objects.filter(concentration__exact=1,schoolyear__lte=1,quarter__exact=1)
-    tyta = Course.objects.filter(concentration__exact=2,schoolyear__lte=1,quarter__exact=1)
-    tysa = Course.objects.filter(concentration__exact=3,schoolyear__lte=1,quarter__exact=1)
-    nyma = Course.objects.filter(concentration__exact=1,schoolyear__gte=1,quarter__exact=1)
-    nyta = Course.objects.filter(concentration__exact=2,schoolyear__gte=1,quarter__exact=1)
-    nysa = Course.objects.filter(concentration__exact=3,schoolyear__gte=1,quarter__exact=1)
+    tyma = Course.objects.filter(Area_Fulfill__exact='Cellular/Molecular/Developmental',Next_Offered__exact=tystr,Quarter_Offered__exact='Autumn')
+    tyta = Course.objects.filter(Area_Fulfill__exact='Translational',Next_Offered__exact=tystr,Quarter_Offered__exact='Autumn')
+    tysa = Course.objects.filter(Area_Fulfill__exact='Systems/Behavioral/Computational',Next_Offered__exact=tystr,Quarter_Offered__exact='Autumn')
+    nyma = Course.objects.filter(Area_Fulfill__exact='Cellular/Molecular/Developmental',Next_Offered__exact=nystr,Quarter_Offered__exact='Autumn')
+    nyta = Course.objects.filter(Area_Fulfill__exact='Translational',Next_Offered__exact=nystr,Quarter_Offered__exact='Autumn')
+    nysa = Course.objects.filter(Area_Fulfill__exact='Systems/Behavioral/Computational',Next_Offered__exact=nystr,Quarter_Offered__exact='Autumn')
 
     # course matrix (winter)
-    tymw = Course.objects.filter(concentration__exact=1,schoolyear__lte=1,quarter__exact=2)
-    tytw = Course.objects.filter(concentration__exact=2,schoolyear__lte=1,quarter__exact=2)
-    tysw = Course.objects.filter(concentration__exact=3,schoolyear__lte=1,quarter__exact=2)
-    nymw = Course.objects.filter(concentration__exact=1,schoolyear__gte=1,quarter__exact=2)
-    nytw = Course.objects.filter(concentration__exact=2,schoolyear__gte=1,quarter__exact=2)
-    nysw = Course.objects.filter(concentration__exact=3,schoolyear__gte=1,quarter__exact=2)
+    tymw = Course.objects.filter(Area_Fulfill__exact='Cellular/Molecular/Developmental',Next_Offered__exact=tystr,Quarter_Offered__exact='Winter')
+    tytw = Course.objects.filter(Area_Fulfill__exact='Translational',Next_Offered__exact=tystr,Quarter_Offered__exact='Winter')
+    tysw = Course.objects.filter(Area_Fulfill__exact='Systems/Behavioral/Computational',Next_Offered__exact=tystr,Quarter_Offered__exact='Winter')
+    nymw = Course.objects.filter(Area_Fulfill__exact='Cellular/Molecular/Developmental',Next_Offered__exact=nystr,Quarter_Offered__exact='Winter')
+    nytw = Course.objects.filter(Area_Fulfill__exact='Translational',Next_Offered__exact=nystr,Quarter_Offered__exact='Winter')
+    nysw = Course.objects.filter(Area_Fulfill__exact='Systems/Behavioral/Computational',Next_Offered__exact=nystr,Quarter_Offered__exact='Winter')
 
     # course matrix (spring)
-    tyms = Course.objects.filter(concentration__exact=1,schoolyear__lte=1,quarter__exact=3)
-    tyts = Course.objects.filter(concentration__exact=2,schoolyear__lte=1,quarter__exact=3)
-    tyss = Course.objects.filter(concentration__exact=3,schoolyear__lte=1,quarter__exact=3)
-    nyms = Course.objects.filter(concentration__exact=1,schoolyear__gte=1,quarter__exact=3)
-    nyts = Course.objects.filter(concentration__exact=2,schoolyear__gte=1,quarter__exact=3)
-    nyss = Course.objects.filter(concentration__exact=3,schoolyear__gte=1,quarter__exact=3)
+    tyms = Course.objects.filter(Area_Fulfill__exact='Cellular/Molecular/Developmental',Next_Offered__exact=tystr,Quarter_Offered__exact='Spring')
+    tyts = Course.objects.filter(Area_Fulfill__exact='Translational',Next_Offered__exact=tystr,Quarter_Offered__exact='Spring')
+    tyss = Course.objects.filter(Area_Fulfill__exact='Systems/Behavioral/Computational',Next_Offered__exact=tystr,Quarter_Offered__exact='Spring')
+    nyms = Course.objects.filter(Area_Fulfill__exact='Cellular/Molecular/Developmental',Next_Offered__exact=nystr,Quarter_Offered__exact='Spring')
+    nyts = Course.objects.filter(Area_Fulfill__exact='Translational',Next_Offered__exact=nystr,Quarter_Offered__exact='Spring')
+    nyss = Course.objects.filter(Area_Fulfill__exact='Systems/Behavioral/Computational',Next_Offered__exact=nystr,Quarter_Offered__exact='Spring')
 
-    return render_to_response('students/courses.html', {'tym': thisyear_molecular, 'tyt': thisyear_translational, 'tys': thisyear_systems, 'nym': nextyear_molecular, 'nyt': nextyear_translational, 'nys': nextyear_systems, 'courses': allcourses, 'tyma': tyma, 'tyta': tyta, 'tysa': tysa, 'nyma': nyma, 'nyta': nyta, 'nysa': nysa, 'tymw': tymw, 'tytw': tytw, 'tysw': tysw, 'nymw': nymw, 'nytw': nytw, 'nysw': nysw, 'tyms': tyms, 'tyts': tyts, 'tyss': tyss, 'nyms': nyms, 'nyts': nyts, 'nyss': nyss}, context_instance=RequestContext(request))
+    return render_to_response('students/courses.html', {'courses': allcourses, 'syscomp': sys, 'trans': trans, 'cellmol': cellmol, 'none': none, 'thisyear': thisyear, 'nextyear': nextyear, 'tyma': tyma, 'tyta': tyta, 'tysa': tysa, 'nyma': nyma, 'nyta': nyta, 'nysa': nysa, 'tymw': tymw, 'tytw': tytw, 'tysw': tysw, 'nymw': nymw, 'nytw': nytw, 'nysw': nysw, 'tyms': tyms, 'tyts': tyts, 'tyss': tyss, 'nyms': nyms, 'nyts': nyts, 'nyss': nyss}, context_instance=RequestContext(request))
 
 def calendar(request):
     return render_to_response('students/calendar.html', {'students': Student.objects.all()}, context_instance=RequestContext(request))
@@ -139,9 +157,13 @@ def download_handbook(request):
 
 ### Faculty ###
 def faculty_profiles(request):
-		themes = Theme.objects.all()
 		faculty_split = {}
-		for k in themes:
-				faculty_split[k] = Faculty.objects.filter(themes__exact=k)
+		faculty_split['Disease'] = Faculty.objects.filter(Disease=1)
+		faculty_split['Systems'] = Faculty.objects.filter(Systems=1)
+		faculty_split['Cellular'] = Faculty.objects.filter(Cellular=1)
+		faculty_split['Molecular'] = Faculty.objects.filter(Molecular=1)
+		faculty_split['Excitability'] = Faculty.objects.filter(Excitability=1)
+		faculty_split['Developmental'] = Faculty.objects.filter(Developmental=1)
+		faculty_split['Computational'] = Faculty.objects.filter(Computational=1)
 
-		return render_to_response('faculty/profiles.html', {'faculty': Faculty.objects.all(), 'fsplit': faculty_split, 'themes': themes}, context_instance=RequestContext(request))
+		return render_to_response('faculty/profiles.html', {'faculty': Faculty.objects.all(), 'fsplit': faculty_split}, context_instance=RequestContext(request))
