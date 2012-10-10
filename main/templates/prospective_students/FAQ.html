@@ -3,21 +3,249 @@
 {% block faq %}class="active"{% endblock %}
 
 {% block content %}
-    <h2>Frequently Asked Questions</h2>
-    <div class="accordion" id="accordion2" style="margin-top: 20px;">
-        {% for item in faqs %}
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#{{ item.question|slugify }}">{{ item.question }}</a>
-            </div>
+<h2>Frequently Asked Questions</h2>
+<p>For more specific information with regard to the admissions process, please visit the <a href="http://biosciences.stanford.edu/admissions.html">Biosciences Admissions home page</a></p>
+<div class="accordion" id="accordion2" style="margin-top: 20px;">
 
-            <div id="{{ item.question|slugify }}" class="accordion-body collapse">
-                <div class="accordion-inner">
-                    {{ item.answer }}
-                </div>
-            </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">Is there a minimum GPA?  Is there a minimum GRE score? Is there a particular TOEFL score required? What field do most accepted applicants come from? Must I have publications in order to be admitted into the program? What is the average age of students in the program? How important is research experience?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q1"></a>
         </div>
-        {% endfor %}
+        <div id="q1" class="accordion-body collapse">
+            <div class="accordion-inner">There is no one “right” way into the Neurosciences Program and no one “composite” Neurosciences Program student.  Our admissions committee works very hard to holistically evaluate each applicant.  We typically select top students from diverse educational and cultural backgrounds and base our selection on a variety of factors, including academic achievements, letters of recommendation attesting to research and academic skills, statement of purpose, and Graduate Record Examination scores. Because of the interdisciplinary nature of the Neurosciences, students are enrolled with backgrounds ranging from computational to biological; we are looking primarily for talented, highly motivated students with evidence of creativity and scientific rigor, irrespective of exact disciplinary background. Similarly, research experience is very important, but the exact disciplinary area is not critical.  Furthermore, we are committed to training a diverse group of neuroscientists which arise from a wide range of ethnic, cultural, educational, and socioeconomic backgrounds; in addition we will provide reasonable accommodations to those with disabilities.  In short, we welcome applications from all qualified individuals.</div>
+        </div>
     </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">How many applications do you receive each year?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q2"></a>
+        </div>
+        <div id="q2" class="accordion-body collapse">
+            <div class="accordion-inner">While it varies from year to year, we generally receive several hundred applications each admissions cycle.</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">I see that the GRE subject test is not required but recommended.  Should I take it? If so, which one should I take?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q3"></a>
+        </div>
+        <div id="q3" class="accordion-body collapse">
+            <div class="accordion-inner">The GRE subject test is not required.  Should you choose to take the subject test, any of them are suitable except perhaps the English literature test.  Some applicants opt to take the Biology test.</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">Does the program provide funding for international students?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q4"></a>
+        </div>
+        <div id="q4" class="accordion-body collapse">
+            <div class="accordion-inner">Qualified applicants who are neither U.S. citizens nor permanent residents are also accepted into the Program as the University offers a limited number of fellowships to outstanding incoming students, and international applicants are eligible for nomination for these fellowships. If you are an international applicant and feel that you are competitive for our program, i.e. with strong neuroscience interests and research experience and superb academic credentials, we encourage you to apply.</div>
+        </div>
+    </div>
+
+
+    <div class="accordion-group">
+        <div class="accordion-heading">How many students are accepted into the program each year?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q5"></a>
+        </div>
+        <div id="q5" class="accordion-body collapse">
+            <div class="accordion-inner">8-15 students are generally accepted each year.</div>
+        </div>
+    </div>
+
+
+    <div class="accordion-group">
+        <div class="accordion-heading">Which courses should I take in order to give me a better chance of being accepted?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q6"></a>
+        </div>
+        <div id="q6" class="accordion-body collapse">
+            <div class="accordion-inner">Unfortunately, we are not in the position to offer specific course advice, but, as a general rule, students from traditional biology backgrounds are expected to show strong achievement in molecular and cellular biology, biochemistry and neuroscience. Students from more quantitative backgrounds should demonstrate considerable competence in mathematics (calculus, differential equations, linear algebra), physics, probability theory, and statistics. Students from psychology backgrounds should be well versed in cognitive science, experimental psychology, neuroscience and statistics.</div>
+        </div>
+    </div>
+
+
+    <div class="accordion-group">
+        <div class="accordion-heading">When will I find out if I got an interview?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q7"></a>
+        </div>
+        <div id="q7" class="accordion-body collapse">
+            <div class="accordion-inner">Generally, invitations to attend interviews are extended in early to mid-January.</div>
+        </div>
+    </div>
+
+
+    <div class="accordion-group">
+        <div class="accordion-heading">When will I find out if I was accepted into the program?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q8"></a>
+        </div>
+        <div id="q8" class="accordion-body collapse">
+            <div class="accordion-inner">It does vary, but generally, applicants being offered admission into the program receive an offer soon after interview session.</div>
+        </div>
+    </div>
+
+
+    <div class="accordion-group">
+        <div class="accordion-heading">How long does it take to complete a PhD?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q9"></a>
+        </div>
+        <div id="q9" class="accordion-body collapse">
+            <div class="accordion-inner">In the last few years, the average time to completion was 5.6 years.</div>
+        </div>
+    </div>
+
+
+    <div class="accordion-group">
+        <div class="accordion-heading">Can previous coursework fulfill program requirements?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q10"></a>
+        </div>
+        <div id="q10" class="accordion-body collapse">
+            <div class="accordion-inner">A student may place-out of any of certain courses by demonstrating to the instructor a command of the material presented in the course. If you feel that you should place out of a course, it is your responsibility to present the current course instructor with the proper documentation (i.e., syllabus, transcripts, papers, etc.) so that he/she may approve the transfer.</div>
+        </div>
+    </div>
+
+
+    <div class="accordion-group">
+        <div class="accordion-heading">I was not invited to interview.  Can you please tell me why? Can you evaluate my chances as an applicant?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q11"></a>
+        </div>
+        <div id="q11" class="accordion-body collapse">
+            <div class="accordion-inner">Unfortunately, our office does not have the resources to inform applicants as to why they were not invited to interview.  Similarly, we are not able to assess your qualifications as an applicant.  If you have a strong interest in our program and feel that you would be a good match, then we strongly encourage you to apply.</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">Is there only one application period each year?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q12"></a>
+        </div>
+        <div id="q12" class="accordion-body collapse">
+            <div class="accordion-inner">Yes, there is only one application period each year.  Applications are generally due on the first Tuesday of December every year for admission into the fall of the next year.</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">Can I reapply if I am not admitted in a given year?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q13"></a>
+        </div>
+        <div id="q13" class="accordion-body collapse">
+            <div class="accordion-inner">Yes, you may.</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">What does “flexible admissions” mean?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q14"></a>
+        </div>
+        <div id="q14" class="accordion-body collapse">
+            <div class="accordion-inner">The Neurosciences Program is part of the Biosciences program, which includes 13 other programs (http://biosciences.stanford.edu/); you may apply to 3 programs within the Biosciences group.  For example, you might apply to Neurosciences, Biology, and Genetics – or any combination of 3 programs.  You do not have to apply to 3, however.  Flexible admissions also means that if you are admitted into one of the Biosciences programs and then later decide that another of the 13 Biosciences programs is a better fit for you, the process of transferring to another department within the Biosciences is less difficult than transferring to another department on campus.</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">Can I supplement MCAT scores for GRE scores?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q15"></a>
+        </div>
+        <div id="q15" class="accordion-body collapse">
+            <div class="accordion-inner">No, you may not.</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">What if my supplemental materials do not arrive by the specified deadline?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q16"></a>
+        </div>
+        <div id="q16" class="accordion-body collapse">
+            <div class="accordion-inner">Your application must be submitted by the application deadline in order to be considered.  It is possible that supplemental information received after the deadline will be reviewed but we cannot guarantee this.</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">What if one of my recommenders fails to provide you with a letter?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q17"></a>
+        </div>
+        <div id="q17" class="accordion-body collapse">
+            <div class="accordion-inner">Your application may still be reviewed, but it is not guaranteed.  We strongly encourage applicants to ask for letters of recommendation early.</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">How many letter of recommendation must I submit?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q18"></a>
+        </div>
+        <div id="q18" class="accordion-body collapse">
+            <div class="accordion-inner">You must submit at least 3, though a maximum of 5 is allowed.</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">From whom would it be best to ask for a letter of recommendation?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q19"></a>
+        </div>
+        <div id="q19" class="accordion-body collapse">
+            <div class="accordion-inner">Letters of recommendation should come from those who know you and your academic/research potential best.</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">Is there any advantage to applying as soon as the application period begins?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q20"></a>
+        </div>
+        <div id="q20" class="accordion-body collapse">
+            <div class="accordion-inner">No, there is no distinct advantage, as all of the applications are reviewed after the final deadline.  However, it is important not to wait until the last minute to submit your application and certainly it is important to give your letter writers plenty of advance notice of the deadline.</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">How much is the application fee?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q21"></a>
+        </div>
+        <div id="q21" class="accordion-body collapse">
+            <div class="accordion-inner">$125</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">Are fee waivers available?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q22"></a>
+        </div>
+        <div id="q22" class="accordion-body collapse">
+            <div class="accordion-inner">Yes, fee waivers are available to certain individuals. </div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">I do not have a background in science, am I still eligible to apply?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q23"></a>
+        </div>
+        <div id="q23" class="accordion-body collapse">
+            <div class="accordion-inner">Students are admitted into the program each year from a variety of disciplines.</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">How are students funded?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q24"></a>
+        </div>
+        <div id="q24" class="accordion-body collapse">
+            <div class="accordion-inner">Students are funded in a variety of ways: The program has a training grant that most students are eligible to be funded by and there are numerous other fellowships available.  Students are not required to secure outside fellowships but are strongly encouraged to apply for fellowships such as NSF, NRSA, NDSEG, etc.</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">May I contact faculty directly?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q25"></a>
+        </div>
+        <div id="q25" class="accordion-body collapse">
+            <div class="accordion-inner">Prospective applicants are encouraged to contact faculty with whom they might be interested in working.  However, it should be made absolutely clear that the faculty member is being contacted only about the work he/she is doing in the lab and not about admissions-related questions.</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">Must I attend the entire Interview Session?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q26"></a>
+        </div>
+        <div id="q26" class="accordion-body collapse">
+            <div class="accordion-inner">Yes.</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">Can I do an interview via Skype?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q27"></a>
+        </div>
+        <div id="q27" class="accordion-body collapse">
+            <div class="accordion-inner">No, you may not.</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">My recommenders/institution would like to use a letter service – is this ok?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q28"></a>
+        </div>
+        <div id="q28" class="accordion-body collapse">
+            <div class="accordion-inner">Yes.</div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">Do I need an advanced degree (M.A., M.S.) to apply?<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#q29"></a>
+        </div>
+        <div id="q29" class="accordion-body collapse">
+            <div class="accordion-inner">No, you do not need an advanced degree.</div>
+        </div>
+    </div>
+
+</div>
 </div>
 {% endblock %}
