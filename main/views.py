@@ -135,6 +135,7 @@ def news(request):
 #
 def upcoming_events(request):
     return render_to_response('news_media/upcoming_events.html', [], context_instance=RequestContext(request))
+
 #
 #def press_releases(request):
     #return render_to_response('media/press_releases.html', [], context_instance=RequestContext(request))
