@@ -11,13 +11,14 @@
                 {% for student in students|dictsort:"NAME_FIRST" %}
 		{% if student.sunetid != 'huguenar' %}
 		<tr>
-			<td><a href="mailto:{{ student.Email }}">{{ student.NAME_FIRST }} {{ student.NAME_LAST }}</a></td>
+			<!--<td><a href="mailto:{{ student.Email }}">{{ student.NAME_FIRST }} {{ student.NAME_LAST }}</a></td>-->
+            <td>{{ student.NAME_FIRST }} {{ student.NAME_LAST }}</td>
                     	{% if student.PI == None %}
 			<td>N/A</td>
 			{% else %}
 			<td>{{ student.PI }}</td>
 			{% endif %}
-			<td>{{ student.Department }}</td>
+			<td>{{ student.Email }}</td>
                 </tr>
 		{% endif %}
                 {% endfor %}
