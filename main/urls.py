@@ -33,6 +33,7 @@ urlpatterns = patterns('main.views',
 
     ### Faculty ###
     url(r'^faculty/profiles', 'faculty_profiles'),
+    url(r'^faculty/instructors', 'faculty_instructors'),
     #url(r'^faculty/intranet', 'faculty_intranet'),
 
     ### News & Media ###

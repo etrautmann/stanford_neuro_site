@@ -6,7 +6,7 @@
     <h2>Student Profiles</h2>
     {% if students %}
         <table style="margin-top: 20px;" class="table table-bordered table-condensed">
-            <thead><tr><td><b>Name</b></td><td><b>Lab</b></td><td><b>Department</b></td></tr></thead>
+            <thead><tr><td><b>Name</b></td><td><b>Lab</b></td><td><b>E-mail</b></td></tr></thead>
             <tbody>
                 {% for student in students|dictsort:"NAME_FIRST" %}
 		{% if student.sunetid != 'huguenar' %}

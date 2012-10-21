@@ -119,7 +119,7 @@ def courses(request):
     nyts = Course.objects.filter(Area_Fulfill__exact='Translational',Next_Offered__exact=nystr,Quarter_Offered__exact='Spring')
     nyss = Course.objects.filter(Area_Fulfill__exact='Systems/Behavioral/Computational',Next_Offered__exact=nystr,Quarter_Offered__exact='Spring')
 
-    return render_to_response('students/courses.html', {'courses': allcourses, 'syscomp': sys, 'trans': trans, 'cellmol': cellmol, 'none': none, 'thisyear': thisyear, 'nextyear': nextyear, 'tyma': tyma, 'tyta': tyta, 'tysa': tysa, 'nyma': nyma, 'nyta': nyta, 'nysa': nysa, 'tymw': tymw, 'tytw': tytw, 'tysw': tysw, 'nymw': nymw, 'nytw': nytw, 'nysw': nysw, 'tyms': tyms, 'tyts': tyts, 'tyss': tyss, 'nyms': nyms, 'nyts': nyts, 'nyss': nyss}, context_instance=RequestContext(request))
+    return render_to_response('students/courses.html', {'noncore': Course.objects.filter(Area_Fulfill__exact='none'), 'courses': allcourses, 'syscomp': sys, 'trans': trans, 'cellmol': cellmol, 'none': none, 'thisyear': thisyear, 'nextyear': nextyear, 'tyma': tyma, 'tyta': tyta, 'tysa': tysa, 'nyma': nyma, 'nyta': nyta, 'nysa': nysa, 'tymw': tymw, 'tytw': tytw, 'tysw': tysw, 'nymw': nymw, 'nytw': nytw, 'nysw': nysw, 'tyms': tyms, 'tyts': tyts, 'tyss': tyss, 'nyms': nyms, 'nyts': nyts, 'nyss': nyss}, context_instance=RequestContext(request))
 
 def calendar(request):
     return render_to_response('students/calendar.html', {'students': Student.objects.all()}, context_instance=RequestContext(request))
@@ -134,7 +134,14 @@ def news(request):
     #return render_to_response('media/publications.html', [], context_instance=RequestContext(request))
 #
 def upcoming_events(request):
-    return render_to_response('news_media/upcoming_events.html', [], context_instance=RequestContext(request))
+    x = 0
+    d = {}
+    for file in os.listdir('ProgramDocuments'):
+	d[x] = file
+	x = x + 1
+
+    variables = {'filedict': d}
+    return render_to_response('news_media/upcoming_events.html', variables, context_instance=RequestContext(request))
 
 #
 #def press_releases(request):
@@ -159,12 +166,24 @@ def download_handbook(request):
 ### Faculty ###
 def faculty_profiles(request):
 		faculty_split = {}
-		faculty_split['Disease'] = Faculty.objects.filter(Disease=1)
-		faculty_split['Systems'] = Faculty.objects.filter(Systems=1)
-		faculty_split['Cellular'] = Faculty.objects.filter(Cellular=1)
-		faculty_split['Molecular'] = Faculty.objects.filter(Molecular=1)
-		faculty_split['Excitability'] = Faculty.objects.filter(Excitability=1)
-		faculty_split['Developmental'] = Faculty.objects.filter(Developmental=1)
-		faculty_split['Computational'] = Faculty.objects.filter(Computational=1)
+		faculty_split['Disease'] = Faculty.objects.filter(mentor=1).filter(Disease=1)
+		faculty_split['Systems'] = Faculty.objects.filter(mentor=1).filter(Systems=1)
+		faculty_split['Cellular'] = Faculty.objects.filter(mentor=1).filter(Cellular=1)
+		faculty_split['Molecular'] = Faculty.objects.filter(mentor=1).filter(Molecular=1)
+		faculty_split['Excitability'] = Faculty.objects.filter(mentor=1).filter(Excitability=1)
+		faculty_split['Developmental'] = Faculty.objects.filter(mentor=1).filter(Developmental=1)
+		faculty_split['Computational'] = Faculty.objects.filter(mentor=1).filter(Computational=1)
 
-		return render_to_response('faculty/profiles.html', {'faculty': Faculty.objects.all(), 'fsplit': faculty_split}, context_instance=RequestContext(request))
+		return render_to_response('faculty/profiles.html', {'faculty': Faculty.objects.filter(mentor=1), 'fsplit': faculty_split}, context_instance=RequestContext(request))
+
+def faculty_instructors(request):
+		faculty_split = {}
+		faculty_split['Disease'] = Faculty.objects.filter(mentor=0).filter(Disease=1)
+		faculty_split['Systems'] = Faculty.objects.filter(mentor=0).filter(Systems=1)
+		faculty_split['Cellular'] = Faculty.objects.filter(mentor=0).filter(Cellular=1)
+		faculty_split['Molecular'] = Faculty.objects.filter(mentor=0).filter(Molecular=1)
+		faculty_split['Excitability'] = Faculty.objects.filter(mentor=0).filter(Excitability=1)
+		faculty_split['Developmental'] = Faculty.objects.filter(mentor=0).filter(Developmental=1)
+		faculty_split['Computational'] = Faculty.objects.filter(mentor=0).filter(Computational=1)
+
+		return render_to_response('faculty/instructors.html', {'faculty': Faculty.objects.filter(mentor=0), 'fsplit': faculty_split}, context_instance=RequestContext(request))

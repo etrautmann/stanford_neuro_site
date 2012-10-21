@@ -1,10 +1,10 @@
 {% extends "L2_faculty.html" %}
-{% block title %}Training Faculty Profiles{% endblock %}
-{% block facultyprofiles %}class="active"{% endblock %}
+{% block title %}Instructor Profiles{% endblock %}
+{% block facultyinstructors %}class="active"{% endblock %}
 {% block content %}
 <div>
-		<h2>Training Faculty Profiles</h2>
-		<p>Our Training Faculty are {{ faculty|length }} highly distinguished scientists who have made fundamental discoveries in all areas of neuroscience from molecules to cognition. They have international reputations for excellence in both research and teaching, and are actively involved in training of Program students through direct mentorship, thesis committee participation, instruction of program courses, and/or participation in program leadership. Browse our faculty by sorting through one of the methods below:</p>
+		<h2>Instructor Profiles</h2>
+		<p>Our Instructors are {{ faculty|length }} highly distinguished scientists who have made fundamental discoveries in all areas of neuroscience from molecules to cognition. They have international reputations for excellence in both research and teaching, and have research programs that benefit program students in terms of informal research guidance or collaborations, but are currently not actively involved in Program PhD training.</p>
 </div>
 
 <ul id="facultyTabs" class="nav nav-pills">

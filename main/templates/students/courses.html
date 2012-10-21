@@ -8,14 +8,15 @@
     <p>Browse available courses by sorting through one of the methods below:</p>
 </div>
 <ul id="courseTabs" class="nav nav-pills">
-  <li><a href="#matrix" data-toggle="tab">Course Matrix</a></li>
+  <li class="active"><a href="#matrix" data-toggle="tab">Course Matrix</a></li>
   <li><a href="#area" data-toggle="tab">Sort by Concentration</a></li>
   <li><a href="#time" data-toggle="tab">Sort by Term Offered</a></li>
+  <li><a href="#noncore" data-toggle="tab">Other Courses</a></li>
 </ul>
 
 <div class="tab-content">
-		<div class="tab-pane fade in active" id="fake"></div>
-    <div class="tab-pane fade" id="matrix">
+		<!-- <div class="tab-pane fade in active" id="fake"></div> -->
+    <div class="tab-pane fade in active" id="matrix">
         <table class="coursematrix table table-bordered">
             <tr><td class="modifier">&nbsp;</td><th>Autumn</th><th>Winter</th><th>Spring</th></tr>
             <tr>
@@ -174,6 +175,20 @@
 </td><td>{{ course.Area_Fulfill }}</td></tr>{% endfor %}
         </table>
    </div>
+   <div class="tab-pane fade" id="noncore">
+	<table class="coursetable table table-striped">
+            <tr><th colspan=4>Other (non-core) courses of interest</th></tr>
+		{% for course in noncore %}<tr><td><a href="#" class="btn btn-primary" rel="popover" id="{{ course.id }}D" title="{{ course.Dept }} {{ course.Course_Number }}" data-content="{{ course.Course_Description }}">{{ course.Dept }} {{ course.Course_Number }}</a></td><td>{{ course.Title }}</td><td>
+	{% if course.Faculty3|length > 0 %}
+		{{ course.Faculty1 }}, {{ course.Faculty2 }}, and {{ course.Faculty3 }}
+	{% elif course.Faculty2|length > 0 %}
+		{{ course.Faculty1 }} and {{ course.Faculty2 }}
+	{% else %}
+		{{ course.Faculty1 }}
+	{% endif %}
+</td></tr>{% endfor %}
+        </table>
+   </div>
 </div>
 </div>
 {% endblock %}
@@ -184,6 +199,7 @@
 $(function () { $("#{{ course.id }}A").popover();});
 $(function () { $("#{{ course.id }}B").popover();});
 $(function () { $("#{{ course.id }}C").popover({placement: 'left'});});
+$(function () { $("#{{ course.id }}D").popover();});
 {% endfor %}
 </script>
 {% endblock %}
