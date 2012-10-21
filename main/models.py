@@ -46,6 +46,7 @@ class Faculty(models.Model):
 		Excitability = models.IntegerField()
 		Computational = models.IntegerField()
 		website = models.CharField(max_length = 255)
+		mentor = models.IntegerField()
 
 		def __unicode__(self):
 				return self.firstname + " " + self.lastname
