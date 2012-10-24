@@ -6,12 +6,13 @@
 {% block sidebar %} 
 
 <ul class="nav nav-list well">
-  <li class="nav-header">Prospective Students</li>
+  <li class="nav-header">News and Media</li>
   <!--<li><a href="#"> Recent Publications </a></li>-->
-  <li {% block upcoming %}{% endblock %}><a href="#">  Upcoming Events </a></li>
+  <li {% block upcoming %}{% endblock %}><a href="#">Upcoming Events </a></li>
+  <li {% block announcements %}{% endblock %}><a href="#">Announcements</a></li>
   <!--<li><a href="#">  Program News </a></li>-->
-  <li><a href="#">  Follow on Twitter</li>
-  <li><a href="#">  Neuroblog </a></li>
+  <li><a href="#">Follow on Twitter</li>
+  <li><a href="#">Neuroblog </a></li>
 </ul>
 
 {% endblock %}

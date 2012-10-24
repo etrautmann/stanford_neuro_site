@@ -1,0 +1,18 @@
+{% extends "L2_news_media.html" %}
+{% block title %}Upcoming Events{% endblock %}
+{% block announcements %}class="active"{% endblock %}
+
+{% block content %}
+
+<h2>Announcements</h2>
+{% if files %}
+	{% for f in files %}
+	<p><a href="{{ STATIC_URL }}ProgramDocuments/{{ f.file }}">{{ f.name }}</a></p>
+        {% endfor %}
+{% else %}
+	<p>No documents found.</p>
+{% endif %}
+
+<p><br /></p>
+</div>
+{% endblock %}

@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from main.models import Student, Faculty, Alumnus, Course, Theme, FAQ
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-import datetime
+import datetime, os, string
 
 ### Other ###
 def notfound(request):
@@ -134,14 +134,24 @@ def news(request):
     #return render_to_response('media/publications.html', [], context_instance=RequestContext(request))
 #
 def upcoming_events(request):
-    x = 0
-    d = {}
-    for file in os.listdir('ProgramDocuments'):
-	d[x] = file
-	x = x + 1
+    return render_to_response('news_media/upcoming_events.html', [], context_instance=RequestContext(request))
 
-    variables = {'filedict': d}
-    return render_to_response('news_media/upcoming_events.html', variables, context_instance=RequestContext(request))
+def announcements(request):
+    allfiles = os.listdir('/home/niru/public_html/static/ProgramDocuments')
+    files = []
+    #names = []
+    for file in allfiles:
+	if file.endswith('pdf') or file.endswith('PDF'):
+	    files.append({'file': file, 'name': string.replace(file,'_',' ')})
+	    #names.append(string.replace(file,'_',' '))
+
+    variables = RequestContext(request,{
+	#'names' : names,
+        'files' : files
+	#files: {'files': files, 'names': names}
+    })
+
+    return render_to_response('news_media/announcements.html', variables, context_instance=RequestContext(request))
 
 #
 #def press_releases(request):
