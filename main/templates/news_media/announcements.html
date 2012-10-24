@@ -8,6 +8,7 @@
 {% if files %}
 	{% for f in files %}
 	<p><a href="{{ STATIC_URL }}ProgramDocuments/{{ f.file }}">{{ f.name }}</a></p>
+	<!-- <p><embed height="100%" width="100%"  name="plugin" src="{{ STATIC_URL }}ProgramDocuments/{{ f.file }}"  type="application/pdf" /></p> -->
         {% endfor %}
 {% else %}
 	<p>No documents found.</p>
