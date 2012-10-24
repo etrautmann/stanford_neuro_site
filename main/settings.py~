@@ -10,6 +10,7 @@ TEMPLATE_DEBUG = True
 ADMINS = (
     ('Niru Maheswaranathan', 'nirum@stanford.edu'),
     ('John Huguenard', 'john.huguenard@stanford.edu'),
+    ('Eric Trautmann', 'etraut@stanford.edu'),
 )
 
 MANAGERS = ADMINS

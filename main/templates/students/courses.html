@@ -11,6 +11,7 @@
   <li class="active"><a href="#matrix" data-toggle="tab">Course Matrix</a></li>
   <li><a href="#area" data-toggle="tab">Sort by Concentration</a></li>
   <li><a href="#time" data-toggle="tab">Sort by Term Offered</a></li>
+  <li><a href="#reqs" data-toggle="tab">Course Requirements</a></li>
   <li><a href="#noncore" data-toggle="tab">Other Courses</a></li>
 </ul>
 
@@ -174,6 +175,49 @@
 	{% endif %}
 </td><td>{{ course.Area_Fulfill }}</td></tr>{% endfor %}
         </table>
+   </div>
+   <div class="tab-pane fade" id="reqs">
+	<h3>Course Requirements</h3>
+	<p>Students are required to become familiar with current research in a broad range of neuroscience areas by taking five advanced courses, with at least one from each of the following core research areas:
+	<ul>
+		<li>Systems, Computational, Cognitive and Behavioral Neuroscience</li>
+		<li>Cellular, Molecular, and Developmental Neuroscience</li>
+		<li>Translational Neuroscience</li>
+	</ul>
+	Each of the courses in these categories is typically offered on alternate years so that the core course requirements can be completed within two years. These options may change, depending on which courses are offered during the next two years.</p>
+
+	<h4>Systems, Computational, Cognitive and Behavioral Neuroscience</h4>
+	<p>Courses at this level focus on the computations performed by neural circuits and the role such computations play in behavior, perceptions, and plasticity. Students can expect to learn how neurons:
+	<ol>
+		<li>Organize circuits into larger functional units</li>
+		<li>Represent and transform information</li>
+		<li>Produce myriad movement</li>
+		<li>Subserve higher-level processing related to perception, reasoning and learning</li>
+	</ol>
+	Predominant methods in this area include modeling single cells and circuits, design of behavioral paradigms, and statistical analysis of behavioral and electrophysiological data.</p>
+
+	<h4>Cellular, Molecular, and Developmental Neuroscience</h4>
+	<p>Courses in this area address fundamental mechanisms that enable cells of the nervous system to develop, function in adulthood, change during learning and memory, and/or malfunction in disease states. Students can expect to learn core concepts in:
+	<ol>
+		<li>Cell-cell communication</li>
+		<li>Intracellular signal transduction</li>
+		<li>Transcriptional and translational control</li>
+		<li>mRNA and protein trafficking</li>
+		<li>Membrane biophysics</li>
+		<li>Cell motility</li>
+	</ol>
+	Dominant methods include molecular biology, genetics, cell biology, electrophysiology, and subcellular or multicellular imaging.</p>
+
+	<h4>Translational Neuroscience</h4>
+	<p>Courses in this area address fundamental concepts in studying disorders of the human brain and the peripheral nervous system and their treatment. Students can expect to learn about basic themes in:
+	<ol>
+		<li>Pathophysiological mechanisms
+		<li>Modeling of human diseases
+		<li>Approaches to designing diagnoses and treatments
+		<li>Implementing diagnoses and treatments
+	</ol>
+	The courses highlight studies of human diseases that use genetics, molecular biology, psychological testing, and functional imaging.</p>
+	<p><br /></p>
    </div>
    <div class="tab-pane fade" id="noncore">
 	<table class="coursetable table table-striped">
