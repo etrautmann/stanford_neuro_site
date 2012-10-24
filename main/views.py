@@ -137,7 +137,7 @@ def upcoming_events(request):
     return render_to_response('news_media/upcoming_events.html', [], context_instance=RequestContext(request))
 
 def announcements(request):
-    allfiles = os.listdir('/home/niru/public_html/static/ProgramDocuments')
+    allfiles = os.listdir('/home/ross/public_html/ProgramDocuments')
     files = []
     #names = []
     for file in allfiles:
