@@ -45,4 +45,5 @@ settings.py
 settings.py~
 __init__.py
 manage.py
+models.py
 wsgi.py
