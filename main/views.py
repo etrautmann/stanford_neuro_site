@@ -59,6 +59,9 @@ def how_to_apply(request):
 def student_profiles(request):
     return render_to_response('students/profiles.html', {'students': Student.objects.all()}, context_instance=RequestContext(request))
 
+def student_profiles_new(request):
+    return render_to_response('students/profiles_new.html', {'students': Student.objects.all()}, context_instance=RequestContext(request))
+
 def alumni_profiles(request):
     return render_to_response('students/alumni.html', {'alumni': Alumnus.objects.all()}, context_instance=RequestContext(request))
 
