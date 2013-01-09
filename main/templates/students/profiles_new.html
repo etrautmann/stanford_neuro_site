@@ -20,15 +20,19 @@
 
             {% for student in students|dictsort:"NAME_LAST" %}
                 {% if student.sunetid != 'huguenar' %}
-                        <tr>
-                        <td>{{ student.NAME_FIRST }} {{ student.NAME_LAST }}<br />
-                        {% if student.PI == None %}
-			                <td>N/A</td>
-			            {% else %}
-			                <td>{{ student.PI }}</td>
-			            {% endif %}
-			            <td>{{ student.Email }}</td>
-                    </tr>
+                   <tr>
+                      {% if student.sunetid != 'nirum' %}
+                        <td>{{ student.NAME_FIRST }} {{ student.NAME_LAST }}</td>
+                      {% else %}
+                        <td>Niru Maheswaranathan</td>
+                      {% endif %}
+                   {% if student.PI == None %}
+			        <td>N/A</td>
+			       {% else %}
+			        <td>{{ student.PI }}</td>
+			       {% endif %}
+			       <td>{{ student.Email }}</td>
+                   </tr>
                 {% endif %}
             {% endfor %}
             </tbody>
@@ -41,7 +45,11 @@
                 {% if student.sunetid != 'huguenar' %}
                    <li class="span2">
                         <div class="thumbnail">
-                            <h4 style="text-align: center; margin: 0 auto;">{{ student.NAME_FIRST }} {{ student.NAME_LAST }}</h4>
+                            {% if student.sunetid != 'nirum' %}
+                                <h4 style="text-align: center; margin: 0 auto;">{{ student.NAME_FIRST }} {{ student.NAME_LAST }}</h4>
+                            {% else %}
+                                <h4 style="text-align: center; margin: 0 auto;">Niru Maheswaranathan</h4>
+                            {% endif %}
                             <img src="{{ STATIC_URL }}mugshots/{{ student.sunetid }}.jpg" alt="" width="150px" height="150px">
                         </div>
                    </li>
