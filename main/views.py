@@ -1,6 +1,6 @@
 # Create your views here.
 from django.http import HttpResponse
-from main.models import Student, Faculty, Alumnus, Course, Theme, FAQ
+from main.models import Student, Faculty, Alumnus, Course, Theme, FAQ, Library
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 import datetime, os, string
@@ -9,7 +9,7 @@ import datetime, os, string
 def notfound(request):
     return render_to_response('404.html', [], context_instance=RequestContext(request))
 
-def home(request): 
+def home(request):
     return render_to_response('index.html', [], context_instance=RequestContext(request))
 
 
@@ -64,6 +64,9 @@ def student_profiles_new(request):
 
 def alumni_profiles(request):
     return render_to_response('students/alumni.html', {'alumni': Alumnus.objects.all()}, context_instance=RequestContext(request))
+
+def library(request):
+    return render_to_response('students/library.html', {'books': Library.objects.all()}, context_instance=RequestContext(request))
 
 def student_intranet(request):
     return render_to_response('students/intranet.html', {'students': Student.objects.all()}, context_instance=RequestContext(request))
@@ -168,7 +171,7 @@ def announcements(request):
 
 
 ### Other ###
-def download_handbook(request): 
+def download_handbook(request):
     abspath = open('/Users/nirum/Dropbox/neuro/main/static/handbook.pdf','r')
     response = HttpResponse(content=abspath.read())
     response['Content-Type']= 'application/pdf'
