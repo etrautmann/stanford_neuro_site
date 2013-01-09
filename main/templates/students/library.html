@@ -6,14 +6,14 @@
     <h2>Neuroscience Program Lending Library</h2>
     {% if books %}
         <table style="margin-top: 20px;" class="table table-bordered table-striped">
-            <thead><tr><td><b>Title</b></td><td><b>Author(s)</b></td><td><b>Publisher</b></td><td><b>Checked Out?</b></td></tr></thead>
+            <thead><tr><td><b>Title</b></td><td><b>Author(s)</b></td><td><b>Publisher</b></td><td><b>Available?</b></td></tr></thead>
             <tbody>
                 {% for book in books|dictsort:"title" %}
-                    <tr>
+                    {% if book.borrower|length > 1 %}<tr style="text-decoration:line-through;">{% else %}<tr>{% endif %}
                         <td>{{ book.title }}</td>
                         <td>{{ book.editors }}</td>
                         <td>{{ book.publisher }}</td>
-                        <td>{% if book.borrower != None %}Yes{% else %}No{% endif %}</td>
+                        <td>{% if book.borrower|length > 1 %}<i class="icon-minus-sign"></i>{% else %}<i class="icon-ok-sign"></i>{% endif %}</td>
                     </tr>
                 {% endfor %}
             </tbody>
