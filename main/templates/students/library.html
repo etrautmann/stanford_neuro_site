@@ -13,7 +13,7 @@
                         <td>{{ book.title }}</td>
                         <td>{{ book.editors }}</td>
                         <td>{{ book.publisher }}</td>
-                        <td>{% if book.borrower|length > 1 %}<i class="icon-minus-sign"></i>{% else %}<i class="icon-ok-sign"></i>{% endif %}</td>
+                        <td>{% if book.borrower|length > 1 %}<i class="icon-remove-sign icon-large"></i>{% else %}<i class="icon-ok"></i>{% endif %}</td>
                     </tr>
                 {% endfor %}
             </tbody>
