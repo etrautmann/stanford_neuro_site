@@ -11,7 +11,6 @@
 		<li><a href="#photos" data-toggle="tab">Photos</a></li>
 </ul>
 
-
 <div class="tab-content">
 		<div class="tab-pane fade in active" id="list">
             <table style="margin-top: 20px;" class="table table-bordered table-condensed">
@@ -51,10 +50,14 @@
                                 <h4 style="text-align: center; margin: 0 auto;">Niru Maheswaranathan</h4>
                             {% endif %}
 
-                            {% if student.sunetid != 'abryant' %}
-                                <img src="{{ STATIC_URL }}mugshots/{{ student.sunetid }}.jpg" alt="" width="150px" height="150px">
+                            {% if student.hasPicture %}
+                                {% if student.sunetid != 'abryant' %}
+                                    <img src="{{ STATIC_URL }}mugshots/{{ student.sunetid }}.jpg" alt="" width="150px" height="150px">
+                                {% else %}
+                                    <img src="{{ STATIC_URL }}mugshots/{{ student.sunetid }}.jpg" onmouseover="this.src='{{ STATIC_URL }}mugshots/{{ student.sunetid }}_hover.jpg'" onmouseout="this.src='{{ STATIC_URL }}mugshots/{{ student.sunetid }}.jpg'" alt="" width="150px" height="150px">
+                                {% endif %}
                             {% else %}
-                                <img src="{{ STATIC_URL }}mugshots/{{ student.sunetid }}.jpg" onmouseover="this.src='{{ STATIC_URL }}mugshots/{{ student.sunetid }}_hover.jpg'" onmouseout="this.src='{{ STATIC_URL }}mugshots/{{ student.sunetid }}.jpg'" alt="" width="150px" height="150px">
+                                <img src="{{ STATIC_URL }}mugshots/neuron.jpg" alt="" width="150px" height="150px">
                             {% endif %}
                         </div>
                    </li>
