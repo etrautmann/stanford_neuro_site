@@ -4,36 +4,66 @@
 
 {% block content %}
     <h2>Student Profiles</h2>
-    {% if students %}
-        <table style="margin-top: 20px;" class="table table-bordered table-condensed">
-            <thead><tr><td><b>Name</b></td><td><b>Lab</b></td><td><b>E-mail</b></td></tr></thead>
-            <tbody>
-                {% for student in students|dictsort:"NAME_FIRST" %}
-		{% if student.sunetid != 'huguenar' %}
-		<tr>
-			<!--<td><a href="mailto:{{ student.Email }}">{{ student.NAME_FIRST }} {{ student.NAME_LAST }}</a></td>-->
-            <td>{{ student.NAME_FIRST }} {{ student.NAME_LAST }}</td>
-                    	{% if student.PI == None %}
-			<td>N/A</td>
-			{% else %}
-			<td>{{ student.PI }}</td>
-			{% endif %}
-			<td>{{ student.Email }}</td>
-                </tr>
-		{% endif %}
-                {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        <p style="margin-top: 20px;">Error. </p>
-    {% endif %}
-</div>
-{% endblock %}
+	<p>We have {{ students|length }} students affiliated with the neurosciences program.</p>
 
-{% block scriptcontent %}
-<script>
-{% for student in students %}
-$(function () { $("#{{ student.sunetid }}").popover();});
-{% endfor %}
-</script>
+<ul id="studentTabs" class="nav nav-pills">
+		<li class="active"><a href="#list" data-toggle="tab">List</a></li>
+		<li><a href="#photos" data-toggle="tab">Photos</a></li>
+</ul>
+
+<div class="tab-content">
+		<div class="tab-pane fade in active" id="list">
+            <table class="table table-bordered table-condensed">
+            <thead><tr><td><b>Name</b></td><td><b>Lab</b></td><td><b>E-mail</b></td></tr></thead>
+            <tbody> {% for student in students|dictsort:"NAME_LAST" %}
+                {% if student.sunetid != 'huguenar' %}
+                   <tr>
+                      {% if student.sunetid != 'nirum' %}
+                        <td>{{ student.NAME_FIRST }} {{ student.NAME_LAST }}</td>
+                      {% else %}
+                        <td>Niru Maheswaranathan</td>
+                      {% endif %}
+                   {% if student.PI == None %}
+			        <td>N/A</td>
+			       {% else %}
+			        <td>{{ student.PI }}</td>
+			       {% endif %}
+			       <td>{{ student.Email }}</td>
+                   </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+            </table>
+        </div>
+		<div class="tab-pane fade" id="photos">
+
+            <ul class="thumbnails">
+            {% for student in students|dictsort:"NAME_LAST" %}
+                {% if student.sunetid != 'huguenar' %}
+                   <li class="span2">
+                        <div class="thumbnail">
+                            {% if student.sunetid != 'nirum' %}
+                                <h4 style="text-align: center; margin: 0 auto;">{{ student.NAME_FIRST }} {{ student.NAME_LAST }}</h4>
+                            {% else %}
+                                <h4 style="text-align: center; margin: 0 auto;">Niru Maheswaranathan</h4>
+                            {% endif %}
+
+                            {% if student.hasPicture %}
+                                {% if student.sunetid != 'abryant' %}
+                                    <img src="{{ STATIC_URL }}mugshots/{{ student.sunetid }}.jpg" alt="" width="150px" height="150px">
+                                {% else %}
+                                    <img src="{{ STATIC_URL }}mugshots/{{ student.sunetid }}.jpg" onmouseover="this.src='{{ STATIC_URL }}mugshots/{{ student.sunetid }}_hover.jpg'" onmouseout="this.src='{{ STATIC_URL }}mugshots/{{ student.sunetid }}.jpg'" alt="" width="150px" height="150px">
+                                {% endif %}
+                            {% else %}
+                                <img src="{{ STATIC_URL }}mugshots/neuron.jpg" alt="" width="150px" height="150px">
+                            {% endif %}
+                        </div>
+                   </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+</div>
+</div>
+
 {% endblock %}
