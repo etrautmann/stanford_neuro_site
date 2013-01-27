@@ -166,16 +166,6 @@ def announcements(request):
 #def neuroblog(request):
     #return render_to_response('media/neuroblog.html', [], context_instance=RequestContext(request))
 
-
-### Other ###
-def download_handbook(request):
-    abspath = open('/Users/nirum/Dropbox/neuro/main/static/handbook.pdf','r')
-    response = HttpResponse(content=abspath.read())
-    response['Content-Type']= 'application/pdf'
-    response['Content-Disposition'] = 'attachment; filename=%s.pdf' \
-                                       % 'Stanford Neuroscience Program Handbook'
-    return response
-
 ### Faculty ###
 def faculty_profiles(request):
 		faculty_split = {}
