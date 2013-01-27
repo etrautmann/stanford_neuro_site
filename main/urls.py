@@ -23,7 +23,6 @@ urlpatterns = patterns('main.views',
     url(r'^prospective_students/how_to_apply', 'how_to_apply'),
 
     ### Student ###
-    url(r'^students/profiles_new', 'student_profiles_new'),
     url(r'^students/profiles', 'student_profiles'),
     url(r'^alumni/profiles', 'alumni_profiles'),
     url(r'^students/library', 'library'),
