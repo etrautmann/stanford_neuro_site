@@ -13,11 +13,9 @@
 
 <div class="tab-content">
 		<div class="tab-pane fade in active" id="list">
-            <table style="margin-top: 20px;" class="table table-bordered table-condensed">
+            <table class="table table-bordered table-condensed">
             <thead><tr><td><b>Name</b></td><td><b>Lab</b></td><td><b>E-mail</b></td></tr></thead>
-            <tbody>
-
-            {% for student in students|dictsort:"NAME_LAST" %}
+            <tbody> {% for student in students|dictsort:"NAME_LAST" %}
                 {% if student.sunetid != 'huguenar' %}
                    <tr>
                       {% if student.sunetid != 'nirum' %}
