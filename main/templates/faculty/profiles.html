@@ -82,10 +82,14 @@
                    <li class="span2">
                       <div class="thumbnail">
                          <h4 style="text-align: center; margin: 0 auto; padding-bottom: 5px;">{{ prof.firstname }}&nbsp;{{ prof.lastname }}</h4>
-                            {% if prof.CAPID %}
+                            {% if prof.hasCAPID %}
                                 <img src="http://med.stanford.edu/profiles/viewImage?facultyId={{ prof.CAPID }}" alt="" width="150px" height="150px">
                             {% else %}
-                                <img src="{{ STATIC_URL }}mugshots/neuron.jpg" alt="" width="150px" height="150px">
+                                {% if prof.hasLocalPicture %}
+                                    <img src="{{ STATIC_URL }}facultyPictures/{{ prof.sunetid }}.jpg" alt="" width="150px" height="150px">
+                                {% else %}
+                                    <img src="{{ STATIC_URL }}mugshots/neuron.jpg" alt="" width="150px" height="150px">
+                                {% endif %}
                             {% endif %}
                         </div>
                    </li>
