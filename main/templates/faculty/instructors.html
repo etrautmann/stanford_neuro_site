@@ -21,6 +21,7 @@
 		</li>
 		{% endif %}
 		</li>
+		<li><a href="#photos" data-toggle="tab">Photos</a></li>
 </ul>
 
 <div class="tab-content">
@@ -71,6 +72,27 @@
 		</table>
 		</div>
 		{% endfor %}
+
+
+		<div class="tab-pane fade" id="photos">
+            <ul class="thumbnails">
+            {% for prof in faculty|dictsort:"lastname" %}
+                   <li class="span2">
+                      <div class="thumbnail">
+                         <h4 style="text-align: center; margin: 0 auto; padding-bottom: 5px;">{{ prof.firstname }}&nbsp;{{ prof.lastname }}</h4>
+                            {% if prof.CAPID %}
+                                <img src="http://med.stanford.edu/profiles/viewImage?facultyId={{ prof.CAPID }}" alt="" width="150px" height="150px">
+                            {% else %}
+                                <img src="{{ STATIC_URL }}mugshots/neuron.jpg" alt="" width="150px" height="150px">
+                            {% endif %}
+                        </div>
+                   </li>
+            {% endfor %}
+            </ul>
+        </div>
+
+
+
 </div>
 </div>
 {% endblock %}
