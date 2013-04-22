@@ -86,9 +86,9 @@
                                 <img src="http://med.stanford.edu/profiles/viewImage?facultyId={{ prof.CAPID }}" alt="" width="150px" height="150px">
                             {% else %}
                                 {% if prof.hasLocalPicture %}
-                                    <img src="{{ STATIC_URL }}facultyPictures/{{ prof.sunetid }}.jpg" alt="" width="150px" height="150px">
+                                    <img src="{{ STATIC_URL }}facultyPictures/{{ prof.sunetid }}.jpg" class="facultyPicture" alt="{{ prof.firstname }}&nbsp;{{ prof.lastname}}" />
                                 {% else %}
-                                    <img src="{{ STATIC_URL }}mugshots/neuron.jpg" alt="" width="150px" height="150px">
+                                    <img src="{{ STATIC_URL }}mugshots/neuron.jpg" class="facultyPicture" alt="{{ prof.firstname }}&nbsp;{{ prof.lastname}}" />
                                 {% endif %}
                             {% endif %}
                         </div>
