@@ -169,24 +169,24 @@ def announcements(request):
 ### Faculty ###
 def faculty_profiles(request):
 		faculty_split = {}
-		faculty_split['Disease'] = Faculty.objects.filter(mentor=1).filter(Disease=1)
-		faculty_split['Systems'] = Faculty.objects.filter(mentor=1).filter(Systems=1)
-		faculty_split['Cellular'] = Faculty.objects.filter(mentor=1).filter(Cellular=1)
-		faculty_split['Molecular'] = Faculty.objects.filter(mentor=1).filter(Molecular=1)
-		faculty_split['Excitability'] = Faculty.objects.filter(mentor=1).filter(Excitability=1)
-		faculty_split['Developmental'] = Faculty.objects.filter(mentor=1).filter(Developmental=1)
-		faculty_split['Computational'] = Faculty.objects.filter(mentor=1).filter(Computational=1)
+		faculty_split['Disease'] = Faculty.objects.filter(mentor=1).filter(Disease=1).filter(active=1)
+		faculty_split['Systems'] = Faculty.objects.filter(mentor=1).filter(Systems=1).filter(active=1)
+		faculty_split['Cellular'] = Faculty.objects.filter(mentor=1).filter(Cellular=1).filter(active=1)
+		faculty_split['Molecular'] = Faculty.objects.filter(mentor=1).filter(Molecular=1).filter(active=1)
+		faculty_split['Excitability'] = Faculty.objects.filter(mentor=1).filter(Excitability=1).filter(active=1)
+		faculty_split['Developmental'] = Faculty.objects.filter(mentor=1).filter(Developmental=1).filter(active=1)
+		faculty_split['Computational'] = Faculty.objects.filter(mentor=1).filter(Computational=1).filter(active=1)
 
-		return render_to_response('faculty/profiles.html', {'faculty': Faculty.objects.filter(mentor=1), 'fsplit': faculty_split}, context_instance=RequestContext(request))
+		return render_to_response('faculty/profiles.html', {'faculty': Faculty.objects.filter(mentor=1).filter(active=1), 'fsplit': faculty_split}, context_instance=RequestContext(request))
 
 def faculty_instructors(request):
 		faculty_split = {}
-		faculty_split['Disease'] = Faculty.objects.filter(mentor=0).filter(Disease=1)
-		faculty_split['Systems'] = Faculty.objects.filter(mentor=0).filter(Systems=1)
-		faculty_split['Cellular'] = Faculty.objects.filter(mentor=0).filter(Cellular=1)
-		faculty_split['Molecular'] = Faculty.objects.filter(mentor=0).filter(Molecular=1)
-		faculty_split['Excitability'] = Faculty.objects.filter(mentor=0).filter(Excitability=1)
-		faculty_split['Developmental'] = Faculty.objects.filter(mentor=0).filter(Developmental=1)
-		faculty_split['Computational'] = Faculty.objects.filter(mentor=0).filter(Computational=1)
+		faculty_split['Disease'] = Faculty.objects.filter(mentor=0).filter(Disease=1).filter(active=1)
+		faculty_split['Systems'] = Faculty.objects.filter(mentor=0).filter(Systems=1).filter(active=1)
+		faculty_split['Cellular'] = Faculty.objects.filter(mentor=0).filter(Cellular=1).filter(active=1)
+		faculty_split['Molecular'] = Faculty.objects.filter(mentor=0).filter(Molecular=1).filter(active=1)
+		faculty_split['Excitability'] = Faculty.objects.filter(mentor=0).filter(Excitability=1).filter(active=1)
+		faculty_split['Developmental'] = Faculty.objects.filter(mentor=0).filter(Developmental=1).filter(active=1)
+		faculty_split['Computational'] = Faculty.objects.filter(mentor=0).filter(Computational=1).filter(active=1)
 
-		return render_to_response('faculty/instructors.html', {'faculty': Faculty.objects.filter(mentor=0), 'fsplit': faculty_split}, context_instance=RequestContext(request))
+		return render_to_response('faculty/instructors.html', {'faculty': Faculty.objects.filter(mentor=0).filter(active=1), 'fsplit': faculty_split}, context_instance=RequestContext(request))
