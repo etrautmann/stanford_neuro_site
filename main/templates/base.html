@@ -10,8 +10,9 @@
 
   <!-- Le styles -->
   <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="{{ STATIC_URL }}bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"> -->
   <link href="{{ STATIC_URL }}font-awesome/css/font-awesome.css" rel="stylesheet">
-  <!--<link href="{{ STATIC_URL }}css/custom.css" rel="stylesheet" type="text/css" />-->
+  <!-- <link href="{{ STATIC_URL }}css/custom.css" rel="stylesheet" type="text/css" /> -->
 
   <!-- HTML5 shim for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
@@ -51,7 +52,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="brand" href="/">Stanford Neurosciences</a>
+        <a class="navbar-brand" href="/">Stanford Neurosciences</a>
       </div>
 
       <!-- collect nav links for toggling -->
@@ -95,7 +96,7 @@
 
               <!--  Faculty-->
               <li class="dropdown" id="faculty">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#faculty">Faculty<i class="icon-caret-down"></b></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#faculty">Faculty<i class="icon-caret-down"></i></a>
                 <ul class="dropdown-menu">
                   <li><a href="/faculty/profiles"><i class="icon-user"></i> Training Faculty Profiles</a></li>
                   <li><a href="/faculty/instructors"><i class="icon-user"></i> Instructor Profiles</a></li>
@@ -151,12 +152,11 @@
       </div>
 
       <!-- FOOTER -->
-      <footer class="modal-footer">
-        <div class='container'>
-          <div class='row'>
-            <div class='span11'>
-              <div class='row'>
-                <div class='span2'>
+      <footer>
+      <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+
                   <h4>Sitemap</h4>
                   <ul class='unstyled'>
                     <li>
@@ -175,8 +175,9 @@
                       <a href='/news_media'>News &amp; Media</a>
                     </li>
                   </ul>
-                </div> <!-- span2 -->
-                <div class='span2'>
+            </div>
+
+            <div class="col-md-2">
                   <h4>External Links</h4>
                   <ul class='unstyled'>
                     <li>
@@ -192,35 +193,29 @@
                       <a href='http://neuroscience.stanford.edu'>SINTN</a>
                     </li>
                   </ul>
-                </div>
-  <div class='span6 offset1'>
-  <h4>
-    Stay connected
-  </h4>
-  <p style="margin-top: 5px">
-    <a href="https://twitter.com/stanfordneuro" class="twitter-follow-button" data-show-count="false" data-size="small">Follow @stanfordneuro</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  </p>
-  <p style="font-size: 11px; width: 220px; float: right; color: #d5d0c0; margin-top: -10px;">Views expressed are not necessarily those of the Neurosciences Program, the School of Medicine, or Stanford University.</p>
-</div>
-</div>
-</div>
-</div>
-<div id='footer-floor'>
-  <div class='container'>
-    <div class='row'>
-      <div class='span7 offset1'>
-        <p>
-          &copy; 2012 <a href="http://neuroscienceprogram.stanford.edu" title="Stanford Neurosciences Program">Stanford Neurosciences</a>. All Rights Reserved.
-        </p>
+            </div>
+
+            <div class="col-md-6 col-md-offset-1">
+                <h4>Stay connected</h4>
+                <p style="margin-top: 5px">
+                <a href="https://twitter.com/stanfordneuro" class="twitter-follow-button" data-show-count="false" data-size="small">Follow @stanfordneuro</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </p>
+                <p class="twitterSubtext">Views expressed are not necessarily those of the Neurosciences Program, the School of Medicine, or Stanford University.</p>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class='col-md-7 col-md-offset-1'>
+            <p>&copy; 2012 <a href="http://neuroscienceprogram.stanford.edu" title="Stanford Neurosciences Program">Stanford Neurosciences</a>. All Rights Reserved.</p>
+            </div>
+        </div>
       </div>
-    </div>
-  </div>
-</footer>
+      </footer>
 
 </div><!--/.fluid-container-->
 
-<!-- Le javascript
+<!-- javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="{{ STATIC_URL }}js/jquery.js"></script>
