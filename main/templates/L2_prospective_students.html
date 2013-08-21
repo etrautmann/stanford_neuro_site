@@ -1,11 +1,11 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 
-{% block about %}class="active"{% endblock %} 
+{% block about %}class="active"{% endblock %}
 
 <!-- ==================================================== -->
-{% block sidebar %} 
+{% block sidebar %}
 
-<ul class="nav nav-list well">
+<ul class="nav nav-pills nav-stacked">
   <li class="nav-header">Prospective Students</li>
   <li {% block programofstudy %}{% endblock %}><a href="/prospective_students/program_of_study"> <i class="icon-road"></i> Program of Study </a></li>
   <li {% block whystanford %}{% endblock %}><a href="/prospective_students/why_stanford"> <i class="icon-question-sign"></i> Why Stanford?</a></li>
