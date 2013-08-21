@@ -5,110 +5,107 @@
 <!-- ============ -->
 <!-- = Carousel = -->
 <!-- ============ -->
-<section id="carousel">
-       <!--<div class="span1">
-           <br/><br/>
-           <img src="{{ STATIC_URL }}images/StanfordLogo.jpg" alt="" width="80px"><hr>
-       </div>-->
-       <div class="span9" style="margin-left: 180px;">
-           <div class="well" style="text-align: center; padding: 20px 5px;"><h2 style="font-size: 36px;">Stanford Neurosciences PhD Program</h2></div>
-       	   <div id="myCarousel" class="carousel slide">
+<div class="row">
+       <div class="col-md-12">
+           <div class="jumbotron">
+                <h2 style="font-size: 36px;">Stanford Neurosciences PhD Program</h2>
+           </div>
+       </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div id="myCarousel" class="carousel slide">
+
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
             <div class="carousel-inner">
-
-<div class="item">
+                <div class="item active">
                   <img src="{{ STATIC_URL }}images/img3.jpg" alt="">
-                <div class="carousel-caption">
-                  <h4>Visualizing connectivity in cortical neurons.</h4>
-                  <p>Layer 5 pyramidal neurons in motor cortex (green, nuclei in blue) send projections to the spinal cord and across to the other hemisphere (red), which act as an important substrate for recovery following injury. From the <a href="http://www.stanford.edu/group/shatzlab/">Shatz lab</a>.</p>
+                    <div class="carousel-caption">
+                        <h4>Visualizing connectivity in cortical neurons.</h4>
+                        <p>Layer 5 pyramidal neurons in motor cortex (green, nuclei in blue) send projections to the spinal cord and across to the other hemisphere (red), which act as an important substrate for recovery following injury. From the <a href="http://www.stanford.edu/group/shatzlab/">Shatz lab</a>.</p>
+                    </div>
                 </div>
-              </div>
 
-<div class="item">
-                <img src="{{ STATIC_URL}}images/img8.jpg" alt="">
-                <div class="carousel-caption">
-                  <h4>Clark Center</h4>
-                  <p>Stanford's <a href="http://biox.stanford.edu/clark/">Clark Center</a> is one of several buildings that house neuroscience labs on campus.</p>
+                <div class="item">
+                    <img src="{{ STATIC_URL}}images/img8.jpg" alt="">
+                    <div class="carousel-caption">
+                        <h4>Clark Center</h4>
+                        <p>Stanford's <a href="http://biox.stanford.edu/clark/">Clark Center</a> is one of several buildings that house neuroscience labs on campus.</p>
+                    </div>
                 </div>
-              </div>
 
-
-		<div class="item">
-                  <img src="{{ STATIC_URL}}images/img2.jpg" alt="">
-                <div class="carousel-caption">
-                  <h4>Two African cichlid fish fighting</h4>
-                  <p>Two dominant male Africah cichlid fish Astotilapia burtoni engaged in a fight over the borer of their adjacent territories (image courtesy of Todd Anderson). From the <a href="http://www.stanford.edu/group/fernaldlab/index.shtml">Fernald lab</a>.</p>
+		        <div class="item">
+                    <img src="{{ STATIC_URL}}images/img2.jpg" alt="">
+                    <div class="carousel-caption">
+                        <h4>Two African cichlid fish fighting</h4>
+                        <p>Two dominant male Africah cichlid fish Astotilapia burtoni engaged in a fight over the borer of their adjacent territories (image courtesy of Todd Anderson). From the <a href="http://www.stanford.edu/group/fernaldlab/index.shtml">Fernald lab</a>.</p>
+                    </div>
                 </div>
-              </div>
 
-
-		<div class="item active">
-                  <img src="{{ STATIC_URL}}images/img1.jpg" alt="">
-                <div class="carousel-caption">
-                  <h4>Alzheimer's Mouse Model</h4>
-                  <p> This image from the hippocampus of an Alzheimer's model mouse, neurons (subset labeled in green) are damaged by the toxic amyloid-beta peptide (red) that additionally stimulates an inflammatory microglial response (white) that may also involve clearance of amyloid-beta by microglia. Blue labels all cell nuclei in this image. From the <a href="http://neurology.stanford.edu/labs/andreassonlab">Andreasson Lab.</a></p>
+		        <div class="item active">
+                    <img src="{{ STATIC_URL}}images/img1.jpg" alt="">
+                    <div class="carousel-caption">
+                        <h4>Alzheimer's Mouse Model</h4>
+                        <p> This image from the hippocampus of an Alzheimer's model mouse, neurons (subset labeled in green) are damaged by the toxic amyloid-beta peptide (red) that additionally stimulates an inflammatory microglial response (white) that may also involve clearance of amyloid-beta by microglia. Blue labels all cell nuclei in this image. From the <a href="http://neurology.stanford.edu/labs/andreassonlab">Andreasson Lab.</a></p>
+                    </div>
                 </div>
-              </div>
 
-<div class="item">
-                  <img src="{{ STATIC_URL}}images/img4.jpg" alt="">
-                <div class="carousel-caption">
-                  <h4>Barn owl learning.</h4>
-                  <p>Barn owls use vision to teach their auditory systems how to localize the sounds of their prey. Photo by Phyllis Knudsen. From the <a href="http://med.stanford.edu/profiles/Eric_Knudsen/">Knudsen lab</a>.</p>
+                <div class="item">
+                    <img src="{{ STATIC_URL}}images/img4.jpg" alt="">
+                    <div class="carousel-caption">
+                        <h4>Barn owl learning.</h4>
+                        <p>Barn owls use vision to teach their auditory systems how to localize the sounds of their prey. Photo by Phyllis Knudsen. From the <a href="http://med.stanford.edu/profiles/Eric_Knudsen/">Knudsen lab</a>.</p>
+                    </div>
                 </div>
-              </div>
 
-              <div class="item">
-                  <img src="{{ STATIC_URL}}images/img5.jpg" alt="">
-                <div class="carousel-caption">
-                  <h4>Fiber tracts in children.</h4>
-                  <p>White-matter fiber tracts examined in a DTI study of children reported by Thomason et al. (2010). From the <a href="http://mood.stanford.edu">Gotlib lab</a>.</p>
+                <div class="item">
+                    <img src="{{ STATIC_URL}}images/img5.jpg" alt="">
+                    <div class="carousel-caption">
+                        <h4>Fiber tracts in children.</h4>
+                        <p>White-matter fiber tracts examined in a DTI study of children reported by Thomason et al. (2010). From the <a href="http://mood.stanford.edu">Gotlib lab</a>.</p>
+                    </div>
                 </div>
-              </div>
 
-            <!--  <div class="item">
-                <img src="{{ STATIC_URL}}images/img6.jpg" alt="">
-                <div class="carousel-caption">
-                  <h4>?</h4>
-                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                </div>
-              </div>
+            </div> <!-- /carousel-inner -->
 
-              <div class="item">
-                <img src="{{ STATIC_URL}}images/img7.jpg" alt="">
-                <div class="carousel-caption">
-                  <h4>George</h4>
-                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                </div>
-              </div> -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="icon-arrow-left"></i></a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="icon-arrow-right"></i></a>
+        </div><!-- /myCarousel -->
+    </div><!-- /col -->
+</div><!-- /row -->
 
-
-            </div>
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-        </div>
-      </div>
-   </div>
    <div class="row">
-       <div class="span3" style="margin-left: 180px;">
+       <div class="col-md-3 col-md-offset-1">
            <div class="well">
                <h3>About the program</h3>
                <p>Program information and history.</p>
                <p align="center"><a class="btn btn-inverse btn-large"  href="/about/info">About &rarr;</a></p>
            </div>
        </div>
-       <div class="span3">
+       <div class="col-md-3 col-md-offset-1">
            <div class="well">
                <h3>Prospective Students</h3>
                <p>Information for potential students.</p>
                <p align="center"><a class="btn btn-inverse btn-large" href="/prospective_students/program_of_study/">Learn more &rarr;</a></p>
            </div>
        </div>
-       <div class="span3">
+       <div class="col-md-3 col-md-offset-1">
            <div class="well">
                <h3>Current students</h3>
                <p>Check out student profiles.</p>
                <p align="center"><a class="btn btn-inverse btn-large" href="/students/profiles">Students &rarr;</a>
            </div>
        </div>
-</div>
+</div> <!-- /row -->
 {% endblock %}
