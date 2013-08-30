@@ -28,24 +28,26 @@
 		<!-- <div class="tab-pane fade in active" id="fake"></div> -->
 		<div class="tab-pane fade" id="all">
 				{% if faculty %}
-				<div class="accordion" id="facultyAccordion">
-						<div class="alert alert-error"><button class="close" data-dismiss="alert">×</button>Click on a row to expand:</div>
+
+				<div class="panel-group" id="facultyAccordion">
+						<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button>Click on a row to expand:</div>
 						{% for prof in faculty %}
-						<div class="accordion-group">
-								<div class="accordion-heading">
-										<a class="accordion-toggle" data-toggle="collapse" data-parent="#facultyAccordion" href="#{{ prof.sunetid }}"><span>{{ prof.firstname }} {{ prof.lastname }}</span><span style="float:right;">{{ prof.email }}</span></a>
+						<div class="panel panel-default">
+								<div class="panel-heading">
+										<a class="accordion-toggle" data-toggle="collapse" data-parent="#facultyAccordion" href="#{{ prof.sunetid }}"><p>{{ prof.firstname }} {{ prof.lastname }}<span class="pull-right">{{ prof.email }}</span></p></a>
 								</div>
-								<div id="{{ prof.sunetid }}" class="accordion-body collapse" style="height: 0px; ">
-										<div class="accordion-inner">
+								<div id="{{ prof.sunetid }}" class="panel-collapse collapse">
+										<div class="panel-body">
 												{{ prof.Summary }}
 												{% if prof.website|length > 1 %}
-														<br /><a href="{{ prof.website }}" style="color: #999;">{{ prof.website }}</a>
+														<br /><a href="{{ prof.website }}">{{ prof.website }}</a>
 												{% endif %}
 										</div>
 								</div>
 						</div>
 						{% endfor %}
 				</div>
+
 				{% else %}
 				<p style="margin-top: 20px;">Error. Please contact the webmaster.<p>
 				{% endif %}
@@ -75,27 +77,25 @@
 
 
 		<div class="tab-pane fade" id="photos">
-            <ul class="thumbnails">
+            <div class="row">
             {% for prof in faculty|dictsort:"lastname" %}
-                   <li class="span2">
-                      <div class="thumbnail">
-                         <h4 style="text-align: center; margin: 0 auto; padding-bottom: 5px;">{{ prof.firstname }}&nbsp;{{ prof.lastname }}</h4>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                         <h4>{{ prof.firstname }}&nbsp;{{ prof.lastname }}</h4>
                             {% if prof.hasCAPID %}
                                 <img src="http://med.stanford.edu/profiles/viewImage?facultyId={{ prof.CAPID }}" alt="" width="150px" height="150px">
                             {% else %}
                                 {% if prof.hasLocalPicture %}
                                     <img src="{{ STATIC_URL }}facultyPictures/{{ prof.sunetid }}.jpg" class="facultyPicture" alt="{{ prof.firstname }}&nbsp;{{ prof.lastname}}" />
                                 {% else %}
-                                    <img src="{{ STATIC_URL }}mugshots/neuron.jpg" class="facultyPicture" alt="{{ prof.firstname }}&nbsp;{{ prof.lastname}}"/>
+                                    <img src="{{ STATIC_URL }}mugshots/neuron.jpg" class="facultyPicture" alt="{{ prof.firstname }}&nbsp;{{ prof.lastname}}" />
                                 {% endif %}
                             {% endif %}
-                        </div>
-                   </li>
+                    </div>
+                </div>
             {% endfor %}
-            </ul>
+            </div>
         </div>
-
-
 
 </div>
 </div>

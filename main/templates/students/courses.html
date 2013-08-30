@@ -19,7 +19,7 @@
 		<!-- <div class="tab-pane fade in active" id="fake"></div> -->
     <div class="tab-pane fade in active" id="matrix">
         <table class="coursematrix table table-bordered">
-            <tr><td class="modifier">&nbsp;</td><th>Autumn</th><th>Winter</th><th>Spring</th></tr>
+            <tr><th></th><th>Autumn</th><th>Winter</th><th>Spring</th></tr>
             <tr>
                 <td class="modifier">Systems<br/>Behavioral<br/>Computational</td>
 		<td>{% for course in tysa %}<a href="#" rel="popover" id="{{ course.id }}C" title="{{ course.Title }}" data-content="{{ course.Course_Description }} <i>
