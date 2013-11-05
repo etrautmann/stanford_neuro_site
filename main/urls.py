@@ -25,6 +25,7 @@ urlpatterns = patterns('main.views',
     ### Student ###
     url(r'^students/profiles', 'student_profiles'),
     url(r'^alumni/profiles', 'alumni_profiles'),
+    url(r'^alumn/profiles', 'alumni_profiles'),
     url(r'^students/library', 'library'),
     url(r'^students/intranet', 'student_intranet'),
     url(r'^students/courses', 'courses'),
