@@ -88,12 +88,14 @@ def courses(request):
     nextyearstr = str(datetime.datetime.now().year+1)
     nextnextyearstr = str(datetime.datetime.now().year+2)
     month = datetime.datetime.now().month
+
     if month < 6:
-	tystr = lastyearstr + '-' + thisyearstr[2:4]
-	nystr = thisyearstr + '-' + nextyearstr[2:4]
+	    tystr = lastyearstr + '-' + thisyearstr[2:4]
+	    nystr = thisyearstr + '-' + nextyearstr[2:4]
     else:
-	tystr = thisyearstr + '-' + nextyearstr[2:4]
-	nystr = nextyearstr + '-' + nextnextyearstr[2:4]
+	    tystr = thisyearstr + '-' + nextyearstr[2:4]
+	    nystr = nextyearstr + '-' + nextnextyearstr[2:4]
+
     # this year
     thisyear = Course.objects.filter(Next_Offered__exact=tystr).exclude(Area_Fulfill__exact='none')
     nextyear = Course.objects.filter(Next_Offered__exact=nystr).exclude(Area_Fulfill__exact='none')
